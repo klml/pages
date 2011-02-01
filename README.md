@@ -2,6 +2,9 @@
 
 I was tired of all the complicated wikis that required some kind of application server that I didn't want to even think about, so I wrote a CouchApp wiki. This one uses Markdown.
 
+## klml fork: wicketboard
+wicketboard is a draft for a Issue_tracking_system written as an extension or fork of pages, a wiki using cuchapp with couchDB. pages, like every wiki, is imho a very good implementation for the Document-oriented database system of couchDB. It shows the user documenst als pages and lets you create change it. And of course couchapp is so elementary and plain (no extra webserver, no extra script just JS
+
 ## Installing
 
 Follow the instructions below ("Deploying...") to get this code into your CouchDB. This section concerns how to make it so Pages is accessible at the URL-style you prefer.
