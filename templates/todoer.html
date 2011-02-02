@@ -1,0 +1,21 @@
+{{>header}}
+
+  <div id="ticketer" class="hottyper" ><button>One new Ticket</button></div>
+  <div id="todoer" class="hottyper" ><button>many new Tickets (each by line)</button></div>
+
+<ul class="todo">
+  {{#tickets}}
+    <li class="prio_{{{prio}}} state_{{{state}}}">
+     <input type="checkbox" name="{{title}}" value="{{_id}}">
+     <span class="punct">{{{punct}}}</span> 
+     {{title}} <a href="../page/{{_id}}">⇗<span>ticket</span></a></li>
+  {{/tickets}}  
+</ul>
+
+<div id="hottyper" ></div>
+
+ </body>
+  <script src="../script/myloader.js"></script>
+  <script src="/_utils/script/base64.js"></script>
+  <script src="../script/wicketboard.js"></script>
+</html>

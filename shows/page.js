@@ -11,13 +11,29 @@ function(doc, req) {
       docid : JSON.stringify(req.id),
       id : req.id,
       path : "../page/"+req.id,
-      site_title : this.couchapp.name
+      site_title : this.couchapp.name,
+      
     };
+    
+    
   if (doc) {
     if (doc.markdown) {
       data.body = wiki.encode(doc.markdown);
     }
     data.title = doc.title;
+    
+    // for notzp, automatic?
+    data.rev = doc._rev;
+
+    data.type = doc.type;
+    data.prio = doc.prio; 
+    data.state = doc.state; 
+    data.punct = doc.punct; 
+    data.queue = doc.queue; 
+    data.user = doc.user; 
+    data.ddate = doc.ddate;
+   
+    
     data.title_json = JSON.stringify(doc.title);
     data.begin = "";
     data.atts = [];

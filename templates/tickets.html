@@ -1,0 +1,28 @@
+{{>header}}
+
+  <div id="ticketer" class="hottyper" ><button>One new Ticket</button></div>
+  <div id="todoer" class="hottyper" ><button>many new Tickets (each by line)</button></div>
+
+  <dl class="ticket">
+   {{#tickets}}
+   <dt><a href="../page/{{_id}}">{{title}}</a> <input value="{{_id}}" readonly="readonly" class="_id" /></dt>
+   <dd>
+    <span class="prio prio_{{{prio}}}">{{{prio}}}</span> 
+    <span class="state state_{{{state}}}">{{{state}}}</span> 
+    <span class="punct {{{punct}}}">{{{punct}}}</span> 
+    <span class="queue {{{queue}}}">{{{queue}}}</span> 
+    <span class="user {{{user}}}">{{{user}}}</span> 
+    <span class="ddate">{{{ddate}}}</span>
+
+    <p class="editinfo">von {{#edit_by}} {{name}} {{/edit_by}} um <span class="date">{{edit_at}}</span></p>    
+   </dd> 
+   {{/tickets}}  
+  </dl>
+ </body>
+  <script src="../script/myloader.js"></script>
+  <script src="/_utils/script/base64.js"></script>
+  <script src="../script/wicketpresets.js"></script>
+  <script src="../script/wicketboard.js"></script>
+  
+  </script>
+</html>

@@ -1,39 +1,61 @@
 {{>header}}
-    <div id="tools"></div>
-    <div id="wiki"><div class="wiki">{{{body}}}</div></div>
-    <div id="comments"></div>
+  <div id="tools"></div>
+  <div id="wiki">
+   <div class="wiki">{{{body}}}</div>
+  </div>
+  <div id="pager" class="hottyper" >
+   <dl>
+    <!-- dt class="{{{_id}}}" >                 id        </dt><dd>   {{{_id}}} </dd -->
+    <dt class="{{{prio}}}" >                prio      </dt><dd>   {{{prio}}} </dd>
+    <dt class="{{{punct}}}" >               punct     </dt><dd>   {{{punct}}} </dd>
+    <dt class="{{{state}}}" >               state     </dt><dd>   {{{state}}} </dd>
+    <dt class="{{{queue}}}" >               queue     </dt><dd>   {{{queue}}} </dd>
+    <dt class="{{{ddate}}}" >             duedate   </dt><dd>   {{{ddate}}} </dd>
+    <dt class="{{{user}}}" >                user      </dt><dd>   {{{user}}} </dd>
+   </dl>
+   <div class="both"></div>
+   <button>Edit Categories</button><!-- TODO server html with jquery.form.js http://malsup.com/jquery/form/ submit -->
+  </div>
+  <div id="comments"></div>
     {{#has_atts}}
     <div id="files">
       <p>Files attached to <em>{{title}}</em>:</p>
       <ul>
         {{#atts}}
-          <li><a href="{{uri}}">{{name}}</a> ({{type}})</li>
+          <dt><a href="{{uri}}">{{name}}</a> ({{type}})</li>
         {{/atts}}
       </ul>
     </div>
-    {{/has_atts}}
-  </body>
-  <script src="../script/myloader.js"></script>
-  <script src="/_utils/script/base64.js"></script>
-  <script src="/_utils/script/jquery.form.js"></script>
-  <script type="text/javascript" charset="utf-8">
-    var opts = {};
-    if (document.location.pathname.indexOf("_design") == -1) {
-      // we are in a vhost
-      opts.db = "pages";
-      opts.design = "pages";
-    };
+   {{/has_atts}}
+ </body>
+
+ <script src="../script/myloader.js"></script>
+ <script src="/_utils/script/base64.js"></script>
+ <script src="/_utils/script/jquery.form.js"></script>
+ <script src="../script/wicketboard.js"></script>
+ <script src="../script/wicketpresets.js"></script>
+  
+ 
+ <script type="text/javascript" charset="utf-8">
     opts.ddoc = {{{ddoc}}};
     $.couch.app(function(app) {
-      $("#account").evently("account", app);
-      $("#profile").evently("profile", app);
-      $.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
-      $$("#wiki").docid = {{docid}};
-      $$("#wiki").title = {{title_json}};
       $("#wiki").evently("wiki", app);
       $("#comments").evently("comments", app);
       $("#tools").evently("tools", app);
+
+      $$("#wiki").docid = {{docid}};
+      $$("#wiki").title = {{title_json}};
+      $$("#wiki").rev = "{{rev}}";
+      //for hottyper
+      $$("#wiki").type = "{{{type}}}";
+      $$("#wiki").prio = "{{{prio}}}";
+      $$("#wiki").state = "{{state}}"; 
+      $$("#wiki").punct = "{{{punct}}}";
+      $$("#wiki").queue = "{{{queue}}}";
+      $$("#wiki").user = "{{{user}}}";
+      $$("#wiki").ddate = "{{{ddate}}}";
+
       $.pathbinder.begin("{{begin}}");
     }, opts);
-  </script>
+ </script>
 </html>

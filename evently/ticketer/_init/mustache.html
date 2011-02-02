@@ -1,0 +1,29 @@
+<form name="ticketer">
+ <fieldset class="top">
+  <legend>Autofiller <a href="http://umija.org/dev:wicketboard">more</a></legend>
+  <p class="warn">Autofiller is <b>now</b> off, reload to turn on<!-- TODO on switch --></p>
+  <div>Autolemma</div>
+  <div id="prioslider" >prioslider</div>
+  <div id="puncts" ><ul class="selectable" ></ul></div>
+
+  <input name="_id"   type="text" onkeyup='autofillerswitch()' >
+  <input name="prio"  type="text" onkeyup='autofillerswitch()' >
+  <input name="punct" type="text" onkeyup='autofillerswitch()' >
+ </fieldset>
+
+ <textarea id="prose" onkeyup='autofiller(value)' name="markdown" rows="10" cols="30"></textarea>
+
+ <fieldset class="bot">
+  <input name="state" type="text" onblur='nr2state(value)'  />
+  <input name="queue" type="text" />
+  <input name="ddate" type="text" class="datepicker" />
+  <input name="user"  type="text" />
+
+  <div id="stateslider" >stateslider</div>
+  <div>queue⇶</div>
+  <div>ddate⌚</div>
+  <div>@user☺</div>
+ </fieldset>
+
+ <input type="submit" value="Ticket anlegen">
+</form>

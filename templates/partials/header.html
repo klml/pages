@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}} - {{site_title}}</title>
-    <link rel="stylesheet" href="../style/base-min.css" type="text/css">
-    <link rel="stylesheet" href="../style/main.css" type="text/css">
-  </head>
-  <body>
-    <div id="header">
-      <div id="account"></div>      
-      <h1><strong><a href="../page/index">{{site_title}}</a>:</strong> <a href="{{path}}">{{title}}</a></h1>
-    </div>
-    <div id="profile"></div>
+ <head>
+  <title>{{title}} - {{site_title}}</title>
+  <link rel="stylesheet" href="../style/base-min.css" type="text/css">
+  <link rel="stylesheet" href="../style/main.css" type="text/css">
+  <link rel="stylesheet" href="../style/wicketboard.css" type="text/css">
+  <link rel="stylesheet" href="../style/jquery-ui.css" type="text/css"><!-- for ticketer -->
+  <link rel="stylesheet" href="../style/jquery.autocomplete.css" type="text/css"><!-- for ticketer -->
+ </head>
+ <body class="traffic {{{type}}} {{{state}}} prio_{{{prio}}}">
+  <div id="header">
+   <div id="account"></div>      
+   <h1><strong><a href="../page/index" alt="home" title="home" >{{site_title}}</a>:</strong> <a href="{{path}}">{{title}}</a></h1>
+  </div>
+  <p class="menu">
+   <a href="#/edit">Edit</a>
+   <a href="#/history" class="wiki">History</a>
+   <a href="#/upload">Upload File</a>
+   <a href="../page/index" class="wiki">Wiki</a>
+   <a href="../pages/recent" class="wiki">Changes</a>
+   <a href="../pages/comments">Comments</a>
+   <a href="../pages/tickets" class="ticket">tickets</a>
+   <a href="../pages/todoer" class="ticket">todoes</a>
+  </p>

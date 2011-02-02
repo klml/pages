@@ -1,0 +1,31 @@
+<form name="ticketer">
+
+    <input type="hidden" name="rev" value="{{rev}}">
+    <input type="hidden" name="type" value="{{type}}"> <!-- // in case for typeswitcher -->
+
+ <fieldset class="top">
+  <div id="lemma"> </div>
+  <div id="prioslider" >prioslider</div>
+  <div id="puncts" ><ul class="selectable" ></ul></div>
+
+<br />
+  <input name="_id"   type="text" value="{{{_id}}}" readonly="readonly" >
+  <input name="prio"  type="text" value="{{{prio}}}" >
+  <input name="punct" type="text" value="{{{punct}}}" >
+ </fieldset>
+
+ <fieldset class="bot" >
+  <input name="state" class="autocomplete" type="text" value="{{{state}}}" onblur='nr2state(value)'  />
+  <input name="queue" class="autocomplete" type="text" value="{{{queue}}}" />
+  <input name="ddate" class="datepicker" type="text" value="{{ddate}}" />
+  <input name="user"  class="autocomplete" type="text" value="{{{user}}}" />
+
+  <div id="stateslider" >stateslider</div>
+  <div id="queues"  >queue⇶</div>
+  <div id="duedate" >duedate⌚</div>
+  <div id="users" >@user☺</div>
+ </fieldset>
+
+   <input type="submit" value="update Ticket">
+
+</form>

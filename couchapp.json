@@ -1,6 +1,6 @@
 {
-  "name": "CouchApp Pages",
-  "description": "A Simple CouchApp Wiki",
+  "name": "WicketTicket",
+  "description": "A Simple CouchApp Wiki, Ticketer, CRM, ERP,.. totally wicket ;P",
   "index" : "_rewrite/page/index",
   "load" : {
     "app" : [

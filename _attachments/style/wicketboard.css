@@ -1,0 +1,176 @@
+/* the simple key less (values) css sytle */
+/* general overwirtes page */
+body			    		{ padding: 10px; }
+body,
+ul.todo li a:hover		    { color: #292929; } /* generall font, blck is so hard secndars would be #D2D2D2 */
+.wiki p			    		{ padding: 5px; }
+#profile,
+p.menu	    				{ float:none; }
+#profile	    			{ background-color:white; }
+
+/* notzp styles */
+.warn                       { color: red; border: 1px solid blue; margin: 3px ; padding: 2px 6px; }
+
+/* satz und form */
+#pager form,
+#ticketer form              { width:750px; }
+textarea[name=markdown] 	{ width:700px; line-height:21px; }
+#ticketer form textarea  	{ background: url(../images/subjectline.png) white 0 0 repeat-x; }
+#todoerform textarea	    { background: url(../images/rainbowbakgrnd.png) white 0 0 repeat-x; }
+
+/* evently */
+
+
+fieldset                     { border: 1px dotted blue; padding:5px 2px ;  margin: 0; }
+.hottyper legend a           { font-size: 50%;}
+
+.hottyper form div           { float: left; margin-right: 4px;                              border: 1px solid red;}
+.hottyper form input         {                                                              border: 1px solid blue;}
+
+.hottyper ul.selectable      { margin: 0; }
+.hottyper ul.selectable li   { margin-right: 5px; list-style: none; }
+
+.hottyper #puncts ul li      { display: inline; }
+
+
+
+
+.hottyper p.warn             { display: none; } /* genauer !*/
+
+.hottyper .top div,
+.hottyper .top input         { width: 32%;}
+.hottyper .bot input,
+.hottyper .bot div           { width: 24%;}
+
+
+#prioslider,
+#stateslider                { font-size: 80%;}
+
+
+button                       { color:white; background-color:#4b4b4b; padding: 10px; width: 220px; }
+
+
+#pager dt, #pager dd {
+    font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+#pager dt {
+    background-color: #8DA7CC;
+    clear: both;
+    color: white;
+    float: left;
+    margin-bottom: 1px;
+    padding-bottom: 1px;
+    padding-left: 6px;
+    padding-right: 50px;
+    padding-top: 1px;
+}
+#pager dd {
+    float: left;
+    margin-left: 10px;
+}
+
+
+
+
+/* templates */
+.editinfo				    { font-size: 80%; margin-top: 3px; }
+
+dl.ticket span				{ padding: 0 10px; }
+dl.ticket                   { width:700px; padding: 5px; }
+dl.ticket dt                { background-color:#f2f1f0 ; margin-bottom: 2px; }
+dl.ticket dt a              { color: #121212; }
+dl.ticket dt input          { float: right; border: 1px solid #525252; font-family: monospace; font-weight: lighter; }
+dl.ticket dd span,
+.todo li span.punct         { border: 1px solid #D2D2D2; border-bottom-width: 2px; border-left-width: 2px; margin-right: 3px; }
+
+
+
+ul.todo li		    		{ border-bottom: 1px solid #f2f1f0 ; list-style-type: none; padding: 2px 0 2px 2px; }
+ul.todo li a				{ text-decoration: none; color: #D2D2D2; } // state_archive can never be a todo 
+ul.todo li a span			{ vertical-align: super; font-size: 50%; }
+
+
+
+/** outermarkdown  **/
+/* type */
+.wiki					    { background-color:white; }
+.ticket				    	{  }
+.adr	    				{ background-color:orange; }
+
+
+
+.prio_1	    				{ color: green; }
+body.hs .prio_2				{ color: #8da7cc; }
+.prio_2,
+body.hs .prio_3,
+.attention	    			{ color: yellow; }
+body.hs .prio_4				{ color: orange; }
+body.hs .prio_5,
+.prio_3,
+.alert			    		{ color: red; }
+.state_new			    	{ background-color: white; } /* like a wiki, knowledge is always "new" */
+.state_progress				{ background-color: Salmon; }
+.state_response				{ background-color: green; } /* im frindly */
+.state_test				    { background-color: red; } /* knallts oder net? */
+.state_done				    { background-color: blue; } /* keep cool everything done */
+.state_archive				{ background-color: #D2D2D2 !important; }
+
+
+._id    , #_id              { font-family: monospace;}
+.prio   , #prio             { font-family: serif ; font-size: 120%; }
+.state  , #state            { text-transform: uppercase; }
+.punct  , #punct            { }
+.queue  , #queue            { text-decoration:underline; }
+
+.user   , #user             { }
+.duedate, #duedate          { }
+
+
+
+
+.both                       {clear: both; }
+
+
+/* jQuery switches */
+.selectable .ui-selecting	{ background: silver; }
+.selectable .ui-selected	{ background: gray; }
+
+/*
+121212
+525252
+C2C2C2
+F2F2F2
+*/
+
+
+/*
+some disput 
+* BlueViolet
+*/
+
+
+/*
+DUMP
+*/
+/* BRAUCHT niemand?
+#classify				    { border: 1px solid blue; }
+#classify .archive			{ border: 1px black blue; }
+#wiki .wiki			    	{ margin: 5px 0 5px 0 ; width: 65%; }
+#classify,
+ul#punctrange li			{ display: inline; list-style-type: none; }
+*/
+
+/*
+#hottypes			    	{ display: none; }
+body.ticket #hottypes,
+body.todoer #hottypes,
+body #ticketer #hottypes		{ display: block !important; }
+*/
+
+/* hottypes */
+/*
+#hottypes                    { float: right; }
+#ticketer form .blurb        { float: right; }
+.hottypes div           {float: left; }
+*/

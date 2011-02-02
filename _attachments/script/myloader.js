@@ -10,6 +10,8 @@ couchapp_load([
   "/_utils/script/json2.js",
   "/_utils/script/jquery.js",
   "/_utils/script/jquery.couch.js",
+  "../script/jquery-ui.min.js", //< ticketer
+  "../script/jquery.autocomplete.js", //< ticketer
   "../vendor/couchapp/jquery.couch.app.js",
   "../vendor/couchapp/jquery.couch.app.util.js",
   "../vendor/couchapp/jquery.mustache.js",
