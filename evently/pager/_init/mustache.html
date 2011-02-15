@@ -1,7 +1,6 @@
 <form name="ticketer">
 
     <input type="hidden" name="rev" value="{{rev}}">
-    <input type="hidden" name="type" value="{{type}}"> <!-- // in case for typeswitcher -->
 
  <fieldset class="top">
   <div id="lemma"> </div>
@@ -25,6 +24,9 @@
   <div id="duedate" >duedate⌚</div>
   <div id="users" >@user☺</div>
  </fieldset>
+
+   <input type="text" name="type" value="{{type}}">
+   <br />
 
    <input type="submit" value="update Ticket">
 
