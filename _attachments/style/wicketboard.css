@@ -8,46 +8,74 @@ ul.todo li a:hover		    { color: #292929; } /* generall font, blck is so hard se
 p.menu	    				{ float:none; }
 #profile	    			{ background-color:white; }
 
+
+#header,
+p.menu,
+p.menu a,
+.hottyper form,
+button                       { color:white; background-color:#00263f; padding: 10px; margin: 0px; }
+#header,
+p.menu,
+.hottyper form,
+button                       { border: 1px solid white; border-bottom: 0; }
+
+button                       { width: 220px; border-bottom: 1px !important;}
+
+
+p.menu a                    { }
+
+
+#wiki                       { border: 1px solid #00263f; }
+
+#header                     { padding-left: 110px; background: url(../images/wicket_ticked_logo_blauerbakg_60.png) 3px 1px no-repeat #00263f; }
+
 /* notzp styles */
-.warn                       { color: red; border: 1px solid blue; margin: 3px ; padding: 2px 6px; }
+.warn                       { color: red; border: 1px solid white; margin: 3px ; padding: 2px 6px; }
 
 /* satz und form */
 #pager form,
-#ticketer form              { width:750px; }
+#ticketer form,
+#todoer form                { width:750px; }
 textarea[name=markdown] 	{ width:700px; line-height:21px; }
 #ticketer form textarea  	{ background: url(../images/subjectline.png) white 0 0 repeat-x; }
 #todoerform textarea	    { background: url(../images/rainbowbakgrnd.png) white 0 0 repeat-x; }
 
 /* evently */
+#ticketer .hottyper button,
+#todoer .hottyper button     { float: right; clear: both;}
 
-
-fieldset                     { border: 1px dotted blue; padding:5px 2px ;  margin: 0; }
+fieldset                     { border: 1px dotted white; padding:5px 2px ;  margin: 0; }
 .hottyper legend a           { font-size: 50%;}
 
-.hottyper form div           { float: left; margin-right: 4px;                              border: 1px solid red;}
-.hottyper form input         {                                                              border: 1px solid blue;}
+.hottyper form div,
+.hottyper form input         { border: 1px solid white;}
+.hottyper form div           { float: left; padding-bottom: 4px; }
+.hottyper form .top div      { margin: 0 4px 4px 0; }
+.hottyper form .bot div      { margin: 4px 4px 0 0; }
 
-.hottyper ul.selectable      { margin: 0; }
+
+.hottyper ul.selectable      { margin: 0;  display: inline; }
 .hottyper ul.selectable li   { margin-right: 5px; list-style: none; }
-
 .hottyper #puncts ul li      { display: inline; }
 
-
+input[readonly=readonly]     { color: gray; }
 
 
 .hottyper p.warn             { display: none; } /* genauer !*/
 
+.hottyper .top input         { width: 240px;}
+.hottyper .bot input         { width: 177px;}
+
+.hottyper .top div           { width: 225px;}
+.hottyper .bot div           { width: 162px;}
+
 .hottyper .top div,
-.hottyper .top input         { width: 32%;}
-.hottyper .bot input,
-.hottyper .bot div           { width: 24%;}
+.hottyper .bot div           { padding-left: 15px;}
 
 
-#prioslider,
-#stateslider                { font-size: 80%;}
 
 
-button                       { color:white; background-color:#4b4b4b; padding: 10px; width: 220px; }
+
 
 
 #pager dt, #pager dd {
@@ -129,7 +157,7 @@ body.hs .prio_5,
 
 
 
-.both                       {clear: both; }
+.both                       { clear: both; }
 
 
 /* jQuery switches */

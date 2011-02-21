@@ -2,9 +2,9 @@
  <fieldset class="top">
   <legend>Autofiller <a href="http://umija.org/dev:wicketboard">more</a></legend>
   <p class="warn">Autofiller is <b>now</b> off, reload to turn on<!-- TODO on switch --></p>
-  <div>Autolemma</div>
-  <div id="prioslider" >prioslider</div>
-  <div id="puncts" ><ul class="selectable" ></ul></div>
+  <div><acronym title="Lemma is the mostly human readable identifier">Lemma</acronym></div>
+  <div id="prioslider" >Prioity</div>
+  <div id="puncts" ><acronym title="is this a request, a question, an idea or just for your information">Punct</acronym>: <ul class="selectable" ></ul></div>
 
   <input name="_id"   type="text" onkeyup='autofillerswitch()' >
   <input name="prio"  type="text" onkeyup='autofillerswitch()' >
@@ -19,9 +19,9 @@
   <input name="ddate" type="text" class="datepicker" />
   <input name="user"  type="text" />
 
-  <div id="stateslider" >stateslider</div>
-  <div>queue⇶</div>
-  <div>ddate⌚</div>
+  <div id="stateslider" ><acronym title="at what procedural step is this task">State</acronym></div>
+  <div><acronym title="which projekt or department">queue⇶</acronym></div>
+  <div><acronym title="Duedate"></acronym>ddate⌚</acronym></div>
   <div>@user☺</div>
  </fieldset>
 

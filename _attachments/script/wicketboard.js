@@ -22,6 +22,12 @@ $.couch.app(function(app) {
   $("#pager button").click(function(event) {  
         $("#pager").evently("pager", app);
   });
+  $("#changelemma").click(function(event) {  
+        $("input[name=_id]").removeAttr("readonly");
+        alert("klml");
+  });
+
+  
   $(".hottyper button").click(function(event) {
         $("#prioslider").slider({
             min: 1, 
@@ -33,7 +39,8 @@ $.couch.app(function(app) {
         });
 
         $('#puncts ul.selectable').append('<li>' + puncts.join("</li><li>") + '</li>');
-        $("#puncts .selectable").selectable( {
+
+        $("#puncts ul.selectable").selectable( {
         selected: function(event, ui) { 
             $('[name="punct"]').val($("#puncts .ui-selected").text() ) ;
             }
@@ -83,11 +90,13 @@ $.couch.app(function(app) {
             max: 40,
             scrollHeight: 280,
         });
-rehur    });
+   });
+
 }, opts);
 
+
 function nr2state(number) {
-    if (number > -1 ) {
+    if (number <= 5 ) { // 0-1 are readable stats, above this are percents, evtl resize to 10, I love this way of data typing ;)))
         state = states[number];
         document.ticketer.state.value = state; //< TODO not sure, better with jQuery?
         }

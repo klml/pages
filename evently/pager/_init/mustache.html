@@ -3,9 +3,9 @@
     <input type="hidden" name="rev" value="{{rev}}">
 
  <fieldset class="top">
-  <div id="lemma"> </div>
-  <div id="prioslider" >prioslider</div>
-  <div id="puncts" ><ul class="selectable" ></ul></div>
+  <div id="lemma"><acronym title="Lemma is not direct changable, all link to here will break ">Lemma</acronym></div>
+  <div id="prioslider" >Prioity</div>
+  <div id="puncts" ><acronym title="is this a request, a question, an idea or just for your information">Punct</acronym>: <ul class="selectable" ></ul></div>
 
 <br />
   <input name="_id"   type="text" value="{{{_id}}}" readonly="readonly" >
@@ -19,15 +19,26 @@
   <input name="ddate" class="datepicker" type="text" value="{{ddate}}" />
   <input name="user"  class="autocomplete" type="text" value="{{{user}}}" />
 
-  <div id="stateslider" >stateslider</div>
-  <div id="queues"  >queue⇶</div>
-  <div id="duedate" >duedate⌚</div>
-  <div id="users" >@user☺</div>
+
+  <div id="stateslider" ><acronym title="at what procedural step is this task">State</acronym></div>
+  <div><acronym title="which projekt or department">Queue⇶</acronym></div>
+  <div><acronym title="Duedate"></acronym>Ddate⌚</acronym></div>
+  <div id="users" >@User☺</div>
  </fieldset>
 
+   
+   <br />
+   <br />
+   <br />
+ <fieldset class="bot" >
+   <acronym title="is thes a normale wikipage, a tcket or a adressenty? change carefully">Type</acronym>:
    <input type="text" name="type" value="{{type}}">
    <br />
-
-   <input type="submit" value="update Ticket">
-
+   
+ </fieldset>
+ 
+ <input type="submit" value="update Ticket">
 </form>
+
+
+<button id="changelemma"><acronym title="Be careful changing the Lemma">Change Lemma</acronym></button>
