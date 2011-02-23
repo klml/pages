@@ -3,31 +3,38 @@
 body			    		{ padding: 10px; }
 body,
 ul.todo li a:hover		    { color: #292929; } /* generall font, blck is so hard secndars would be #D2D2D2 */
+a                           { text-decoration: none ;}
 .wiki p			    		{ padding: 5px; }
 #profile,
 p.menu	    				{ float:none; }
 #profile	    			{ background-color:white; }
 
 
-#header,
+#header,                    /* hefter */
+#header a,
 p.menu,
 p.menu a,
 .hottyper form,
-button                       { color:white; background-color:#00263f; padding: 10px; margin: 0px; }
+button                       { color:white; background-color:#00263f; padding: 10px; margin: 0px; border: 1px solid white; border-bottom: 0; }
+
 #header,
-p.menu,
-.hottyper form,
-button                       { border: 1px solid white; border-bottom: 0; }
-
+#header a                    { padding: 45px 10px 10px 10px; }
 button                       { width: 220px; border-bottom: 1px !important;}
+#header                      { background: url(../images/wicket_ticked_logo_blauerbakg_60.png) 20px 15px no-repeat #00263f; height:45px;}
+#header a[href$="index"]     { display: block; float: left; width: 150px; height: 20px; background: none; border: none; padding: 0;}
 
 
-p.menu a                    { }
 
 
-#wiki                       { border: 1px solid #00263f; }
 
-#header                     { padding-left: 110px; background: url(../images/wicket_ticked_logo_blauerbakg_60.png) 3px 1px no-repeat #00263f; }
+
+
+
+
+#wiki,
+.pagetools a                { border: 1px solid #00263f; }
+.pagetools a                { margin-left: 0 0 0 10px; border-bottom: none; padding: 0 10px; }
+.pagetools                  { margin: 0 0 0 10px; }
 
 /* notzp styles */
 .warn                       { color: red; border: 1px solid white; margin: 3px ; padding: 2px 6px; }
@@ -41,8 +48,8 @@ textarea[name=markdown] 	{ width:700px; line-height:21px; }
 #todoerform textarea	    { background: url(../images/rainbowbakgrnd.png) white 0 0 repeat-x; }
 
 /* evently */
-#ticketer .hottyper button,
-#todoer .hottyper button     { float: right; clear: both;}
+#ticketer.hottyper button,
+#todoer.hottyper button     { float: right; clear: both;}
 
 fieldset                     { border: 1px dotted white; padding:5px 2px ;  margin: 0; }
 .hottyper legend a           { font-size: 50%;}

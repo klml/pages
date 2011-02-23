@@ -1,24 +1,23 @@
 {{>header}}
+  <div id="tools"></div>
 
-
-  <p class="menu">
+  <p class="pagetools">
    <a href="#/edit">Edit this page</a>
    <a href="#/history" class="wiki">History</a>
    <a href="#/upload">Upload File</a>
   </p>
-  <div id="tools"></div>
   <div id="wiki">
    <div class="wiki">{{{body}}}</div>
   </div>
+  
   <div id="pager" class="hottyper" >
    <dl>
-    <!-- dt class="{{{_id}}}" >                 id        </dt><dd>   {{{_id}}} </dd -->
-    <dt class="{{{prio}}}" >                prio      </dt><dd>   {{{prio}}} </dd>
-    <dt class="{{{punct}}}" >               punct     </dt><dd>   {{{punct}}} </dd>
-    <dt class="{{{state}}}" >               state     </dt><dd>   {{{state}}} </dd>
-    <dt class="{{{queue}}}" >               queue     </dt><dd>   {{{queue}}} </dd>
-    <dt class="{{{ddate}}}" >             duedate   </dt><dd>   {{{ddate}}} </dd>
-    <dt class="{{{user}}}" >                user      </dt><dd>   {{{user}}} </dd>
+    <dt class="{{{prio}}}" > Priority    </dt><dd>{{{prio}}} </dd>
+    <dt class="{{{punct}}}" >Punctuation </dt><dd>{{{punct}}} </dd>
+    <dt class="{{{state}}}" >State       </dt><dd>{{{state}}} </dd>
+    <dt class="{{{queue}}}" >Queue       </dt><dd>{{{queue}}} </dd>
+    <dt class="{{{ddate}}}" >Duedate     </dt><dd>{{{ddate}}} </dd>
+    <dt class="{{{user}}}" > User        </dt><dd>{{{user}}} </dd>
    </dl>
    <div class="both"></div>
    <button>Edit Categories</button><!-- TODO server html with jquery.form.js http://malsup.com/jquery/form/ submit -->
