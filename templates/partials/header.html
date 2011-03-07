@@ -4,16 +4,18 @@
   <title>{{title}} - {{site_title}}</title>
   <link rel="stylesheet" href="../style/base-min.css" type="text/css">
   <link rel="stylesheet" href="../style/main.css" type="text/css">
-  <link rel="stylesheet" href="../style/wicketboard.css" type="text/css">
   <link rel="stylesheet" href="../style/jquery-ui.css" type="text/css"><!-- for ticketer -->
   <link rel="stylesheet" href="../style/jquery.autocomplete.css" type="text/css"><!-- for ticketer -->
+  <link rel="stylesheet" href="../style/wicketboard.css" type="text/css">
  </head>
  <body class="traffic {{{type}}} {{{state}}} prio_{{{prio}}}">
   <div id="header">
-   <div id="account"></div>      
-    <div><a href="../page/index" alt="{{site_title}}" title="{{site_title}}" > </a></div>
-   <a href="../pages/tickets" class="ticket">tickets</a> <a href="../pages/todoer" class="ticket">todoes</a>
-   <a href="../pages/recent" class="wiki"><acronym title="recent changes of all kind of documents, wikipages, tickets, adress etc">recent changes</acronym></a>
+   <div>
+    <div id="account"></div>      
+     <a href="../page/index" alt="{{site_title}}" title="{{site_title}}" > </a>
+     <menu>
+      <a href="../pages/tickets" class="ticket">tickets</a> <a href="../pages/todoer" class="ticket">todoes</a>
+      <a href="../pages/recent" class="wiki"><acronym title="recent changes of all kind of documents, wikipages, tickets, adress etc">recent changes</acronym></a>
+    </menu>
+   </div>
   </div>
-
-   <h1><a href="{{path}}">{{title}}</a></h1>

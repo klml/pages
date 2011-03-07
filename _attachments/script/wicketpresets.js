@@ -1,5 +1,5 @@
 // global stuff for wicketboard
-// TODO use as JSON like couchapp.json 
+// TODO use as JSON like couchapp.json or editable as wikipage
 // and ? : why cant I use ccouchapp.json in the client
 
 var ticketprefix = "task_";   // seomthing like "ticket", "bug_" 
@@ -8,7 +8,7 @@ types  = new Array ( "wiki", "ticket", "adr", "ressource");
 prios  = new Array ( "week", "Alerta", "hour", "day", "week", "kuer");
 states = new Array ( "new", "progress", "response", "test", "onhold", "archive");
 puncts = new Array ( "!", "?", "idea", "fyi");
-users  = new Array ( "klml", "mike", "sulu", "gwen", "hans", "horst", "min", "pater", "kay", "hans-peter");
+users  = new Array ( "klml", "mike", "sulu", "gwen", "phl0w", "horst", "min", "pater", "kay", "hans-peter");
 queues = new Array (
   "com.mcd",
   "com.gwen",

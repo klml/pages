@@ -1,24 +1,61 @@
 {{>header}}
-  <div id="tools"></div>
+  <h1><a href="{{path}}">{{title}}</a></h1>
+  <input name="id" value="{{id}}" readonly="readonly" onFocus="this.select()" /> 
+  <div id="tools" class="both"></div>
 
   <p class="pagetools">
    <a href="#/edit">Edit this page</a>
    <a href="#/history" class="wiki">History</a>
    <a href="#/upload">Upload File</a>
   </p>
-  <div id="wiki">
-   <div class="wiki">{{{body}}}</div>
-  </div>
   
+
+  <div id="wiki">
+{{#type}} {{! not so good gives out if type exists }}
+   <form class="keyline">
+     <input type="hidden" name="rev" value="{{rev}}">
+    <fieldset class="prio">
+     <legend>Priorität</legend>
+     <input name="prio"  class="prio_{{{prio}}}"          value="{{{prio}}}" readonly="readonly" />
+     <div class="rail"></div>
+    </fieldset>
+    <fieldset class="punct">
+     <legend>Punct</legend>
+     <input name="punct" class="{{{punct}}}" value="{{{punct}}}" readonly="readonly" /> 
+    </fieldset>
+    <fieldset class="state">
+     <legend>State</legend>
+     <input name="state" class="autocomplete state_{{{state}}}" value="{{{state}}}" readonly="readonly" onFocus="this.select()" />
+     <div class="rail"></div>
+    </fieldset>
+    <fieldset class="queue">
+     <legend>Queue</legend>
+     <input name="queue" class="autocomplete {{{queue}}}" value="{{{queue}}}" readonly="readonly" onFocus="this.select()" /> 
+    </fieldset>
+    <fieldset class="ddate">
+     <legend>Duedate</legend>
+     <input name="ddate" class="datepicker"               value="{{{ddate}}}" readonly="readonly" />
+    </fieldset>
+    <fieldset class="user">
+     <legend>User</legend>
+     <input name="user"  class="autocomplete {{{user}}}"  value="{{{user}}}" readonly="readonly" onFocus="this.select()" /> 
+    </fieldset>
+   </form>
+{{/type}}
+   
+   <div class="wiki both">{{{body}}}</div>
+{{#type}}
+   <form class="keyline">
+     <input name="start" class="autocomplete state_{{{state}}}" value="" readonly="readonly" onFocus="this.select()"  /> 
+     <input name="end" class="autocomplete {{{queue}}}" value="" readonly="readonly" onFocus="this.select()" /> 
+     <input name="duration" class="datepicker"               value="" readonly="readonly" />
+     <input name="hair"  class="autocomplete {{{user}}}"  value="" readonly="readonly" onFocus="this.select()" /> 
+   </form>
+{{/type}}
+   
+  </div>
+  <p class="editinfo">von {{#edit_by}} {{name}} {{/edit_by}} um <span class="date">{{edit_at}}</span></p>      
   <div id="pager" class="hottyper" >
-   <dl>
-    <dt class="{{{prio}}}" > Priority    </dt><dd>{{{prio}}} </dd>
-    <dt class="{{{punct}}}" >Punctuation </dt><dd>{{{punct}}} </dd>
-    <dt class="{{{state}}}" >State       </dt><dd>{{{state}}} </dd>
-    <dt class="{{{queue}}}" >Queue       </dt><dd>{{{queue}}} </dd>
-    <dt class="{{{ddate}}}" >Duedate     </dt><dd>{{{ddate}}} </dd>
-    <dt class="{{{user}}}" > User        </dt><dd>{{{user}}} </dd>
-   </dl>
    <div class="both"></div>
    <button>Edit Categories</button><!-- TODO server html with jquery.form.js http://malsup.com/jquery/form/ submit -->
   </div>

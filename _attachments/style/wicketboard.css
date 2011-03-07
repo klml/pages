@@ -15,20 +15,16 @@ p.menu	    				{ float:none; }
 p.menu,
 p.menu a,
 .hottyper form,
-button                       { color:white; background-color:#00263f; padding: 10px; margin: 0px; border: 1px solid white; border-bottom: 0; }
+button                       { color:white; background-color:#00263f; }
 
-#header,
-#header a                    { padding: 45px 10px 10px 10px; }
-button                       { width: 220px; border-bottom: 1px !important;}
-#header                      { background: url(../images/wicket_ticked_logo_blauerbakg_60.png) 20px 15px no-repeat #00263f; height:45px;}
-#header a[href$="index"]     { display: block; float: left; width: 150px; height: 20px; background: none; border: none; padding: 0;}
+#header                      { background: url(../images/wicket_ticked_logo_blauerbakg_60.png) 20px 15px no-repeat #00263f; padding: 5px; }
+#header a                    { padding: 0 25px; }
+button                       { border-bottom: 1px !important;}
+#header > div                { border: 1px solid white; height:75px; }
+#header a[href$="index"]     { display: block; float: left; width: 150px; height: 75px;  border-right: 1px solid white; background-color: transparent; padding: 0; }
+#header menu                 { bottom: 1px; border-top: 1px solid white;  margin: 50px 0 0 150px; padding-left: 5px; }
 
-
-
-
-
-
-
+h1                          { float: left; height: 50px; margin-right: 15px;}
 
 
 #wiki,
@@ -48,10 +44,9 @@ textarea[name=markdown] 	{ width:700px; line-height:21px; }
 #todoerform textarea	    { background: url(../images/rainbowbakgrnd.png) white 0 0 repeat-x; }
 
 /* evently */
-#ticketer.hottyper button,
-#todoer.hottyper button     { float: right; clear: both;}
 
-fieldset                     { border: 1px dotted white; padding:5px 2px ;  margin: 0; }
+
+
 .hottyper legend a           { font-size: 50%;}
 
 .hottyper form div,
@@ -64,8 +59,6 @@ fieldset                     { border: 1px dotted white; padding:5px 2px ;  marg
 .hottyper ul.selectable      { margin: 0;  display: inline; }
 .hottyper ul.selectable li   { margin-right: 5px; list-style: none; }
 .hottyper #puncts ul li      { display: inline; }
-
-input[readonly=readonly]     { color: gray; }
 
 
 .hottyper p.warn             { display: none; } /* genauer !*/
@@ -110,21 +103,59 @@ input[readonly=readonly]     { color: gray; }
 
 /* templates */
 .editinfo				    { font-size: 80%; margin-top: 3px; }
+input[readonly=readonly]     { color: gray; }
 
+/* lists */
 dl.ticket span				{ padding: 0 10px; }
 dl.ticket                   { width:700px; padding: 5px; }
-dl.ticket dt                { background-color:#f2f1f0 ; margin-bottom: 2px; }
-dl.ticket dt a              { color: #121212; }
-dl.ticket dt input          { float: right; border: 1px solid #525252; font-family: monospace; font-weight: lighter; }
-dl.ticket dd span,
-.todo li span.punct         { border: 1px solid #D2D2D2; border-bottom-width: 2px; border-left-width: 2px; margin-right: 3px; }
 
+.ticket dt,
+.ticket dd                    {  background-color: #b1bbc4; }
+form.keyline                   {  background-color: white; }
 
+dl.ticket dt                { padding: 10px 10px 0 10px ; }
+dl.ticket dd                { margin: 0 0 10px 0; padding: 1px 10px ; }
 
 ul.todo li		    		{ border-bottom: 1px solid #f2f1f0 ; list-style-type: none; padding: 2px 0 2px 2px; }
 ul.todo li a				{ text-decoration: none; color: #D2D2D2; } // state_archive can never be a todo 
 ul.todo li a span			{ vertical-align: super; font-size: 50%; }
 
+
+/* keyline */
+form.keyline           {  margin: 0; padding: 0; border: 0 solid white; }
+.keyline a              { color: #121212; }
+
+.keyline fieldset           { float: left; border: 1px solid black; margin: 0 2px; padding: 1px 6px 1px 1px; }
+
+.keyline input,
+.todo li span.punct         { width: 130px; margin-right: -4px; border: 1px solid #D2D2D2; background-color: #b1bbc4;}
+
+.keyline input.autocomplete[readonly="readonly"]              { background: #b1bbc4 url(none)  ; }
+.keyline input.autocomplete              { background: #b1bbc4 url(../images/dropdown.png) top right no-repeat ; }
+
+input[name="id"],
+input[name="_id"]             {  border: 1px solid #525252; font-family: monospace; font-weight: lighter; }
+dt input[name="_id"]           { float: right;}
+
+.keyline input[name="prio"]  { background: url(../images/prio_rainbow.png) 0 0 repeat-y white ; width: 78px; }
+.keyline input[name="prio"]value  { border: 2px solid white ; color: black; }
+.keyline input[name="punct"]  { width: 50px; }
+         
+.keyline input[value="1"]   { padding-left: 10px; width: 68px; } /* damm borderbox ;(*/
+.keyline input[value="2"]   { padding-left: 35px; width: 38px; }
+.keyline input[value="3"]   { padding-left: 60px; width: 18px;}
+
+ul.puncts               { display: inline; }
+ul.puncts li               { display: inline; }
+
+
+.keyline legend                 { font-size: 60%; }
+
+/* jquery anpasung */
+
+.rail                      { height: 0; }
+
+.ui-slider .ui-slider-handle    { background: url(../images/dropup.png) 0 0 no-repeat ; height: 7px; width: 14px; border: none; margin-left: 0 ;}
 
 
 /** outermarkdown  **/
@@ -135,6 +166,7 @@ ul.todo li a span			{ vertical-align: super; font-size: 50%; }
 
 
 
+/*
 .prio_1	    				{ color: green; }
 body.hs .prio_2				{ color: #8da7cc; }
 .prio_2,
@@ -144,19 +176,26 @@ body.hs .prio_4				{ color: orange; }
 body.hs .prio_5,
 .prio_3,
 .alert			    		{ color: red; }
-.state_new			    	{ background-color: white; } /* like a wiki, knowledge is always "new" */
+*/
+
+
+/*
+.state_new			    	{ background-color: white; }
 .state_progress				{ background-color: Salmon; }
-.state_response				{ background-color: green; } /* im frindly */
-.state_test				    { background-color: red; } /* knallts oder net? */
-.state_done				    { background-color: blue; } /* keep cool everything done */
+.state_response				{ background-color: green; }
+.state_test				    { background-color: red; } 
+.state_done				    { background-color: blue; }
 .state_archive				{ background-color: #D2D2D2 !important; }
+*/
 
 
+/*
 ._id    , #_id              { font-family: monospace;}
 .prio   , #prio             { font-family: serif ; font-size: 120%; }
 .state  , #state            { text-transform: uppercase; }
 .punct  , #punct            { }
 .queue  , #queue            { text-decoration:underline; }
+*/
 
 .user   , #user             { }
 .duedate, #duedate          { }
