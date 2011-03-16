@@ -1,11 +1,10 @@
 {{>header}}
   <h1><a href="{{path}}">{{title}}</a></h1>
   <div id="ticketer" class="hottyper both" ><button>New</button></div>
-  
 
   <dl class="ticket">
    {{#tickets}}
-   <dt><input name="_id" value="{{_id}}" readonly="readonly" class="_id" onFocus="this.select()" /><a href="../page/{{_id}}">{{title}}</a></dt>
+   <dt><input name="_id" value="{{_id}}" class="_id" onFocus="this.select()" readonly /><a href="../page/{{_id}}">{{title}}</a></dt>
    <dd>
     <form class="keyline">
      <input name="prio"  class="prio_{{{prio}}}" value="{{{prio}}}" /> 

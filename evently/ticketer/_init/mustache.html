@@ -1,7 +1,7 @@
 <form name="ticketer" class="keyline">
      <input type="hidden" name="rev" value="{{rev}}">
     <fieldset class="_id">
-     <legend>TicketID</legend>
+     <legend><acronym title="TicketID is not direct changable, all link to here will break ">TicketID</acronym></legend>
      <input name="_id"  class="_id"          value="{{{_id}}}"  />
      <div class="rail"></div>
     </fieldset>
@@ -11,16 +11,16 @@
      <div class="rail"></div>
     </fieldset>
     <fieldset class="punct">
-     <legend>Punct</legend>
+     <legend><acronym title="is this a request, a question, an idea or just for your information">Punct</acronym></legend>
      <input name="punct" class="{{{punct}}}" value="{{{punct}}}"  /> 
     </fieldset>
     <fieldset class="state">
-     <legend>State</legend>
+     <legend><acronym title="at what procedural step is this task">State</acronym></legend>
      <input name="state" class="autocomplete state_{{{state}}}" value="{{{state}}}"  onFocus="this.select()" />
      <div class="rail"></div>
     </fieldset>
     <fieldset class="queue">
-     <legend>Queue</legend>
+     <legend><acronym title="which projekt or department.">Queue</acronym></legend>
      <input name="queue" class="autocomplete {{{queue}}}" value="{{{queue}}}"  onFocus="this.select()" /> 
     </fieldset>
     <fieldset class="ddate">

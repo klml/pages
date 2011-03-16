@@ -1,52 +1,57 @@
 /* the simple key less (values) css sytle */
-/* general overwirtes page */
-body			    		{ padding: 10px; }
+/* general overwirtes page  maincol #00263f*/
+body                        { padding: 10px; }
 body,
-ul.todo li a:hover		    { color: #292929; } /* generall font, blck is so hard secndars would be #D2D2D2 */
+ul.todo li a:hover          { color: #292929; } /* generall font, blck is so hard secndars would be #D2D2D2 */
 a                           { text-decoration: none ;}
-.wiki p			    		{ padding: 5px; }
+.wiki p                     { padding: 5px; }
 #profile,
-p.menu	    				{ float:none; }
-#profile	    			{ background-color:white; }
-
+p.menu                      { float:none; }
+#profile                    { background-color:white; }
+.both                       { clear: both; }
 
 #header,                    /* hefter */
 #header a,
 p.menu,
 p.menu a,
 .hottyper form,
-button                       { color:white; background-color:#00263f; }
+button,
+form.keyline .submit         { color:white; background-color:#00263f; }
 
-#header                      { background: url(../images/wicket_ticked_logo_blauerbakg_60.png) 20px 15px no-repeat #00263f; padding: 5px; }
+#header                      { background: url(../images/wicket_ticked_logo_blauerbakg_60.png) 20px 15px no-repeat #00263f; padding: 5px; margin-bottom: 8px; }
 #header a                    { padding: 0 25px; }
 button                       { border-bottom: 1px !important;}
 #header > div                { border: 1px solid white; height:75px; }
 #header a[href$="index"]     { display: block; float: left; width: 150px; height: 75px;  border-right: 1px solid white; background-color: transparent; padding: 0; }
+
+
 #header menu                 { bottom: 1px; border-top: 1px solid white;  margin: 50px 0 0 150px; padding-left: 5px; }
 
-h1                          { float: left; height: 50px; margin-right: 15px;}
+h1                           { display: inline; border: 1px solid #00263f; padding: 0 13px 0 8px;}
+input[name="id"]             {vertical-align : top; margin-top: 5px;}
+input[name="id"]:after       { content: url(../images/fusszettel.png) ; }
+img[src$="fusszettel.png"]   { margin: 0 -4px 12px -19px ; }
 
+
+acronym                      { border-bottom-style: none ;}
 
 #wiki,
-.pagetools a                { border: 1px solid #00263f; }
-.pagetools a                { margin-left: 0 0 0 10px; border-bottom: none; padding: 0 10px; }
-.pagetools                  { margin: 0 0 0 10px; }
+.pagetools a                 { border: 1px solid #00263f; }
+.pagetools a                 { margin-left: 0 0 0 10px; border-bottom: none; padding: 0 10px; }
+.pagetools                   { margin: 8px 0 0 8px; }
 
 /* notzp styles */
-.warn                       { color: red; border: 1px solid white; margin: 3px ; padding: 2px 6px; }
+.warn                        { color: red; border: 1px solid white; margin: 3px ; padding: 2px 6px; }
 
 /* satz und form */
 #pager form,
 #ticketer form,
-#todoer form                { width:750px; }
+#todoer form                { width:750px; border: 1px solid #00263f;}
 textarea[name=markdown] 	{ width:700px; line-height:21px; }
-#ticketer form textarea  	{ background: url(../images/subjectline.png) white 0 0 repeat-x; }
+#ticketer form textarea  	{ background: url(../images/subjectline.png) white 0 0 repeat-x; margin-top: 5px; }
 #todoerform textarea	    { background: url(../images/rainbowbakgrnd.png) white 0 0 repeat-x; }
 
 /* evently */
-
-
-
 .hottyper legend a           { font-size: 50%;}
 
 .hottyper form div,
@@ -73,178 +78,74 @@ textarea[name=markdown] 	{ width:700px; line-height:21px; }
 .hottyper .bot div           { padding-left: 15px;}
 
 
-
-
-
-
-
-#pager dt, #pager dd {
-    font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
-    font-size: 12px;
-}
-#pager dt {
-    background-color: #8DA7CC;
-    clear: both;
-    color: white;
-    float: left;
-    margin-bottom: 1px;
-    padding-bottom: 1px;
-    padding-left: 6px;
-    padding-right: 50px;
-    padding-top: 1px;
-}
-#pager dd {
-    float: left;
-    margin-left: 10px;
-}
-
-
-
-
 /* templates */
-.editinfo				    { font-size: 80%; margin-top: 3px; }
-input[readonly=readonly]     { color: gray; }
+.editinfo                    { font-size: 80%; margin-top: 3px; }
+input[readonly]              { color: gray; }
+
 
 /* lists */
-dl.ticket span				{ padding: 0 10px; }
-dl.ticket                   { width:700px; padding: 5px; }
+dl.ticket span               { padding: 0 10px; }
+dl.ticket                    { width:700px; padding: 5px; }
 
 .ticket dt,
-.ticket dd                    {  background-color: #b1bbc4; }
-form.keyline                   {  background-color: white; }
+.ticket dd                   {  background-color: #b1bbc4; }
 
-dl.ticket dt                { padding: 10px 10px 0 10px ; }
-dl.ticket dd                { margin: 0 0 10px 0; padding: 1px 10px ; }
 
-ul.todo li		    		{ border-bottom: 1px solid #f2f1f0 ; list-style-type: none; padding: 2px 0 2px 2px; }
-ul.todo li a				{ text-decoration: none; color: #D2D2D2; } // state_archive can never be a todo 
-ul.todo li a span			{ vertical-align: super; font-size: 50%; }
+dl.ticket dt                 { padding: 10px 10px 0 10px ; }
+dl.ticket dd                 { margin: 0 0 10px 0; padding: 1px 10px ; }
+
+ul.todo li                   { border-bottom: 1px solid #f2f1f0 ; list-style-type: none; padding: 2px 0 2px 2px; }
+ul.todo li a                 { text-decoration: none; color: #D2D2D2; } // state_archive can never be a todo 
+ul.todo li a span            { vertical-align: super; font-size: 50%; }
 
 
 /* keyline */
-form.keyline           {  margin: 0; padding: 0; border: 0 solid white; }
-.keyline a              { color: #121212; }
+form.keyline                 { margin: 0; padding: 5px; border: 0 solid white; background-color: transparent; }
+.keyline a                   { color: #121212; }
 
-.keyline fieldset           { float: left; border: 1px solid black; margin: 0 2px; padding: 1px 6px 1px 1px; }
+.keyline fieldset,
+form.keyline .submit         { float: left; }
+.keyline fieldset            { float: left; border: 1px solid black; margin: -2px 2px 0 2px; padding: 1px 3px 3px 3px; }
+form.keyline .submit         { display: none; padding: 4px 10px;   margin: 7px;}
+
 
 .keyline input,
-.todo li span.punct         { width: 130px; margin-right: -4px; border: 1px solid #D2D2D2; background-color: #b1bbc4;}
+.todo li span.punct          { width: 115px; height: 21px; border: 1px solid #D2D2D2; background-color: #b1bbc4; font-size: 85%; padding: 2px 5px;}
 
-.keyline input.autocomplete[readonly="readonly"]              { background: #b1bbc4 url(none)  ; }
+.keyline input.autocomplete[readonly]    { background: #b1bbc4 url(none)  ; }
 .keyline input.autocomplete              { background: #b1bbc4 url(../images/dropdown.png) top right no-repeat ; }
 
 input[name="id"],
-input[name="_id"]             {  border: 1px solid #525252; font-family: monospace; font-weight: lighter; }
-dt input[name="_id"]           { float: right;}
+input[name="_id"]                        {  border: 1px solid #525252; font-family: monospace; font-weight: lighter; }
+dt input[name="_id"]                     { float: right;}
 
-.keyline input[name="prio"]  { background: url(../images/prio_rainbow.png) 0 0 repeat-y white ; width: 78px; }
-.keyline input[name="prio"]value  { border: 2px solid white ; color: black; }
-.keyline input[name="punct"]  { width: 50px; }
+.keyline input[name="prio"]              { background: url(../images/prio_rainbow.png) 0 0 repeat-y white ; width: 68px; }
+.keyline input[name="prio"]value         { border: 2px solid white ; color: black; }
+.keyline input[name="punct"]             { width: 50px; }
          
-.keyline input[value="1"]   { padding-left: 10px; width: 68px; } /* damm borderbox ;(*/
-.keyline input[value="2"]   { padding-left: 35px; width: 38px; }
-.keyline input[value="3"]   { padding-left: 60px; width: 18px;}
+.keyline input[value="0"][name="prio"]   { padding-left:  0px; color: black ; width: 68px; } /* damm borderbox ;(*/
+.keyline input[value="1"][name="prio"]   { padding-left: 10px; color: white ; width: 58px; } /* damm borderbox ;(*/
+.keyline input[value="2"][name="prio"]   { padding-left: 35px; color: white ; width: 28px; }
+.keyline input[value="3"][name="prio"]   { padding-left: 60px; color: white ; width: 8px;}
 
-ul.puncts               { display: inline; }
-ul.puncts li               { display: inline; }
+ul.puncts                       { display: inline; }
+ul.puncts li                    { display: inline; }
 
 
 .keyline legend                 { font-size: 60%; }
 
-/* jquery anpasung */
 
-.rail                      { height: 0; }
 
+/* jQuery switches */
+.selectable .ui-selecting       { background: silver; }
+.selectable .ui-selected        { background: gray; }
 .ui-slider .ui-slider-handle    { background: url(../images/dropup.png) 0 0 no-repeat ; height: 7px; width: 14px; border: none; margin-left: 0 ;}
+.ui-slider .ui-slider-handle:hover    { background: url(../images/dropup_high.png) 0 0 no-repeat ; height: 35px; }
+.rail                           { height: 0;  margin-top: -2px;}
 
 
 /** outermarkdown  **/
 /* type */
-.wiki					    { background-color:white; }
-.ticket				    	{  }
-.adr	    				{ background-color:orange; }
-
-
-
-/*
-.prio_1	    				{ color: green; }
-body.hs .prio_2				{ color: #8da7cc; }
-.prio_2,
-body.hs .prio_3,
-.attention	    			{ color: yellow; }
-body.hs .prio_4				{ color: orange; }
-body.hs .prio_5,
-.prio_3,
-.alert			    		{ color: red; }
-*/
-
-
-/*
-.state_new			    	{ background-color: white; }
-.state_progress				{ background-color: Salmon; }
-.state_response				{ background-color: green; }
-.state_test				    { background-color: red; } 
-.state_done				    { background-color: blue; }
-.state_archive				{ background-color: #D2D2D2 !important; }
-*/
-
-
-/*
-._id    , #_id              { font-family: monospace;}
-.prio   , #prio             { font-family: serif ; font-size: 120%; }
-.state  , #state            { text-transform: uppercase; }
-.punct  , #punct            { }
-.queue  , #queue            { text-decoration:underline; }
-*/
-
-.user   , #user             { }
-.duedate, #duedate          { }
-
-
-
-
-.both                       { clear: both; }
-
-
-/* jQuery switches */
-.selectable .ui-selecting	{ background: silver; }
-.selectable .ui-selected	{ background: gray; }
-
-/*
-121212
-525252
-C2C2C2
-F2F2F2
-*/
-
-
-/*
-some disput 
-* BlueViolet
-*/
-
-
-/*
-DUMP
-*/
-/* BRAUCHT niemand?
-#classify				    { border: 1px solid blue; }
-#classify .archive			{ border: 1px black blue; }
-#wiki .wiki			    	{ margin: 5px 0 5px 0 ; width: 65%; }
-#classify,
-ul#punctrange li			{ display: inline; list-style-type: none; }
-*/
-
-/*
-#hottypes			    	{ display: none; }
-body.ticket #hottypes,
-body.todoer #hottypes,
-body #ticketer #hottypes		{ display: block !important; }
-*/
-
-/* hottypes */
-/*
-#hottypes                    { float: right; }
-#ticketer form .blurb        { float: right; }
-.hottypes div           {float: left; }
-*/
+.wiki                           { background-color:white; }
+.ticket                         {  }
+.adr                            { background-color:orange; }

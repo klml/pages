@@ -12,7 +12,6 @@ function(doc, req) {
       id : req.id,
       path : "../page/"+req.id,
       site_title : this.couchapp.name,
-      
     };
     
     
@@ -24,6 +23,8 @@ function(doc, req) {
     
     // for notzp, automatic?
     data.rev = doc._rev;
+    data.markdown = doc.markdown;
+    data.log = doc.log;
 
     data.type = doc.type;
     data.prio = doc.prio; 

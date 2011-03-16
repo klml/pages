@@ -5,76 +5,6 @@ if (document.location.pathname.indexOf("_design") == -1) {
     opts.design = "pages";
 };
 
-
-  $(".keyline").click(function(event) {
-      
-        $("form.keyline input").removeAttr("readonly"); // wirklich auf alle?
-
-        $('fieldset.prio div.rail').slider({
-            min: 1, 
-            max: 5, 
-            step: 1,
-            slide: function(event, ui) { 
-                $('[name="prio"]').val(ui.value); //< uses numbers direct as value for prios
-            } 
-        });
-
-        $('ul.selectable.puncts').append('<li>' + puncts.join("</li><li>") + '</li>');
-
-        $("ul.selectable.puncts").selectable( {
-        selected: function(event, ui) { 
-            $('[name="punct"]').val($("ul.selectable.puncts .ui-selected").text() ) ;
-            }
-        });
-
-        $('input[name="state"]').autocomplete(states, {
-            matchContains: true,
-            minChars: 0, //< combobox
-            max: 40,
-            scrollHeight: 280,
-        }); 
-        $('fieldset.state div.rail').slider({
-            min: 0, 
-            max: 5, 
-            step: 1,
-            slide: function(event, ui) { 
-                $('[name="state"]').val(ui.value); //< sends numbers...
-                nr2state(ui.value); //< ... these will "translated" in to ... will I burn in hell or is this ok?
-            } 
-        });
-
-        $('input[name="queue"]').autocomplete(queues, {
-            matchContains: true,
-            minChars: 0,
-            max: 40,
-            scrollHeight: 280,
-        }); 
-        
-        $(".datepicker").datepicker({
-            defaultDate: +7,
-            dateFormat: 'yy-mm-dd',
-            numberOfMonths: 2,
-            showOtherMonths: true,
-            selectOtherMonths: true,
-            changeMonth: true,
-            changeYear: true,
-            showWeek: true,
-            weekHeader: 'W',
-            firstDay: 1,
-            currentText: '  Heute',
-            showButtonPanel: true 
-        });
-
-        $('input[name="user"]').autocomplete(users, {
-            matchContains: true,
-            minChars: 0,
-            max: 40,
-            scrollHeight: 280,
-        });
-});
-
-
-
 $.couch.app(function(app) {
   $(".date").prettyDate();
   $("#account").evently("account", app);
@@ -85,34 +15,25 @@ $.couch.app(function(app) {
   $.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
   $("#ticketer button").click(function(event) {
         $("#ticketer").evently("ticketer", app);
+        keyliner();
   });
   $("#todoer button").click(function(event) {  
         $("#todoer").evently("todoer", app);
+        keyliner();
   });
-  $("#pager button").click(function(event) {  
-        $("#pager").evently("pager", app);
-  });
-  
-  
-  
-  $("#changelemma").click(function(event) {  
-        $("input[name=_id]").removeAttr("readonly");
-        alert("klml");
-  });
-
-  
-  $(".hottyper button").click(function(event) { /// das da unten muss in eine function
-        
+}, opts);
 
 
-        $("form.keyline input").removeAttr("readonly"); // wirklich auf alle?
+function keyliner() {
+        $("form.keyline .submit").show('slow');
+        $("form.keyline input").removeAttr('readonly'); // wirklich auf alle?
 
         $('fieldset.prio div.rail').slider({
             min: 1, 
             max: 5, 
             step: 1,
             slide: function(event, ui) { 
-                $('[name="prio"]').val(ui.value); //< uses numbers direct as value for prios
+                $('form.keyline input[name="prio"]').val(ui.value); //< uses numbers direct as value for prios
             } 
         });
 
@@ -120,11 +41,11 @@ $.couch.app(function(app) {
 
         $("ul.selectable.puncts").selectable( {
         selected: function(event, ui) { 
-            $('[name="punct"]').val($("ul.selectable.puncts .ui-selected").text() ) ;
+            $('form.keyline input[name="punct"]').val($("ul.selectable.puncts .ui-selected").text() ) ;
             }
         });
 
-        $('input[name="state"]').autocomplete(states, {
+        $('form.keyline input[name="state"]').autocomplete(states, { // TODO http://plugins.jquery.com/project/FlexBox http://plugins.jquery.com/project/DDComboBox
             matchContains: true,
             minChars: 0, //< combobox
             max: 40,
@@ -135,12 +56,12 @@ $.couch.app(function(app) {
             max: 5, 
             step: 1,
             slide: function(event, ui) { 
-                $('[name="state"]').val(ui.value); //< sends numbers...
+                $('form.keyline input[name="state"]').val(ui.value); //< sends numbers...
                 nr2state(ui.value); //< ... these will "translated" in to ... will I burn in hell or is this ok?
             } 
         });
 
-        $('input[name="queue"]').autocomplete(queues, {
+        $('form.keyline input[name="queue"]').autocomplete(queues, {
             matchContains: true,
             minChars: 0,
             max: 40,
@@ -162,24 +83,30 @@ $.couch.app(function(app) {
             showButtonPanel: true 
         });
 
-        $('input[name="user"]').autocomplete(users, {
+        $('form.keyline input[name="user"]').autocomplete(users, {
             matchContains: true,
             minChars: 0,
             max: 40,
             scrollHeight: 280,
         });
 
+        // safeinseconds();
+    };
 
-   });
-
-}, opts);
-
-
+function safeinseconds() {
+    $("form.keyline .submit").append(' ' + safetime );
+    safetime = safetime -1 ;
+    if (safetime <= 0) { 
+        safekeyline($("form.keyline input[name='_id']").val()); 
+        return; 
+    } ;
+    setTimeout(safeinseconds,1000); 
+    };  
 
 function nr2state(number) {
     if (number <= 5 ) { // 0-1 are readable stats, above this are percents, evtl resize to 10, I love this way of data typing ;)))
         state = states[number];
-        document.ticketer.state.value = state; //< TODO not sure, better with jQuery?
+        $('form.keyline input[name="state"]').val(state); //< TODO  need a this 
         }
     };
 function autofillerswitch() {

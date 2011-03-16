@@ -1,64 +1,62 @@
 {{>header}}
+
   <h1><a href="{{path}}">{{title}}</a></h1>
+  <img src="../images/fusszettel.png" />
   <input name="id" value="{{id}}" readonly="readonly" onFocus="this.select()" /> 
   <div id="tools" class="both"></div>
 
-  <p class="pagetools">
-   <a href="#/edit">Edit this page</a>
-   <a href="#/history" class="wiki">History</a>
-   <a href="#/upload">Upload File</a>
-  </p>
-  
-
   <div id="wiki">
-{{#type}} {{! not so good gives out if type exists }}
-   <form class="keyline">
-     <input type="hidden" name="rev" value="{{rev}}">
+{{#type}} {{! only if type exists, not what type ;( }}
+   <form class="keyline" ID="keyline" onclick='keyliner()' ><!-- use form is easier than in-place-editor ? exept: copy -->
+     <input type="hidden" name="_id" value="{{id}}"><!-- chance to get this one on top of the page? -->
+     <input type="hidden" name="_rev" value="{{rev}}">
+     <input type="hidden" name="markdown" value="{{markdown}}"><!-- to get new compltet versions markdown has to piped throug  -->
+     <input type="hidden" name="title" value="{{title}}">
     <fieldset class="prio">
      <legend>Priorität</legend>
-     <input name="prio"  class="prio_{{{prio}}}"          value="{{{prio}}}" readonly="readonly" />
+     <input name="prio"  class="prio_{{{prio}}}"          value="{{{prio}}}" readonly />
      <div class="rail"></div>
     </fieldset>
     <fieldset class="punct">
-     <legend>Punct</legend>
+     <legend><acronym title="is this a request, a question, an idea or just for your information">Punct</acronym></legend>
      <input name="punct" class="{{{punct}}}" value="{{{punct}}}" readonly="readonly" /> 
     </fieldset>
     <fieldset class="state">
-     <legend>State</legend>
-     <input name="state" class="autocomplete state_{{{state}}}" value="{{{state}}}" readonly="readonly" onFocus="this.select()" />
+     <legend><acronym title="at what procedural step is this task">State</acronym></legend>
+     <input name="state" class="autocomplete state_{{{state}}}" value="{{{state}}}" readonly onFocus="this.select()" />
      <div class="rail"></div>
     </fieldset>
     <fieldset class="queue">
-     <legend>Queue</legend>
+     <legend><acronym title="which projekt or department.">Queue</acronym></legend>
      <input name="queue" class="autocomplete {{{queue}}}" value="{{{queue}}}" readonly="readonly" onFocus="this.select()" /> 
     </fieldset>
     <fieldset class="ddate">
      <legend>Duedate</legend>
-     <input name="ddate" class="datepicker"               value="{{{ddate}}}" readonly="readonly" />
+     <input name="ddate" class="datepicker" value="{{{ddate}}}" readonly="readonly" />
     </fieldset>
     <fieldset class="user">
      <legend>User</legend>
      <input name="user"  class="autocomplete {{{user}}}"  value="{{{user}}}" readonly="readonly" onFocus="this.select()" /> 
     </fieldset>
+    <fieldset>
+     <legend>Type</legend>
+     <input name="type"  class=""  value="{{{type}}}" readonly="readonly" onFocus="this.select()" /> 
+    </fieldset>
+    <div class="submit" onclick="safekeyline()">Safe</div>
    </form>
 {{/type}}
    
    <div class="wiki both">{{{body}}}</div>
-{{#type}}
-   <form class="keyline">
-     <input name="start" class="autocomplete state_{{{state}}}" value="" readonly="readonly" onFocus="this.select()"  /> 
-     <input name="end" class="autocomplete {{{queue}}}" value="" readonly="readonly" onFocus="this.select()" /> 
-     <input name="duration" class="datepicker"               value="" readonly="readonly" />
-     <input name="hair"  class="autocomplete {{{user}}}"  value="" readonly="readonly" onFocus="this.select()" /> 
-   </form>
-{{/type}}
+  <p class="pagetools">
+   <a href="#/edit">Edit this page</a>
+   <!--a href="#/history" class="wiki">History</a>
+   <a href="#/upload">Upload File</a -->
+  </p>
+
    
   </div>
   <p class="editinfo">von {{#edit_by}} {{name}} {{/edit_by}} um <span class="date">{{edit_at}}</span></p>      
-  <div id="pager" class="hottyper" >
-   <div class="both"></div>
-   <button>Edit Categories</button><!-- TODO server html with jquery.form.js http://malsup.com/jquery/form/ submit -->
-  </div>
+
   <div id="comments"></div>
     {{#has_atts}}
     <div id="files">
@@ -70,26 +68,26 @@
       </ul>
     </div>
    {{/has_atts}}
- </body>
 
+ </body>
  <script src="../script/myloader.js"></script>
  <script src="/_utils/script/base64.js"></script>
  <script src="/_utils/script/jquery.form.js"></script>
  <script src="../script/wicketboard.js"></script>
  <script src="../script/wicketpresets.js"></script>
-  
+ <script src="../script/form2object.js"></script><!-- http://code.google.com/p/form2js/ -->
  
  <script type="text/javascript" charset="utf-8">
     opts.ddoc = {{{ddoc}}};
     $.couch.app(function(app) {
       $("#wiki").evently("wiki", app);
-      $("#comments").evently("comments", app);
+      
       $("#tools").evently("tools", app);
 
       $$("#wiki").docid = {{docid}};
       $$("#wiki").title = {{title_json}};
       $$("#wiki").rev = "{{rev}}";
-      //for hottyper
+      //for keyline
       $$("#wiki").type = "{{{type}}}";
       $$("#wiki").prio = "{{{prio}}}";
       $$("#wiki").state = "{{state}}"; 
@@ -99,6 +97,27 @@
       $$("#wiki").ddate = "{{{ddate}}}";
 
       $.pathbinder.begin("{{begin}}");
+      $("#comments").evently("comments", app);
     }, opts);
+
+function safekeyline() { // cant wicketboard.js: msg
+    var formData = form2object('keyline');
+    var formkeyline = JSON.stringify(formData, null, '\t');
+    $.ajax({
+        type: "PUT",
+        url: "../../../../{{id}}" , //< TODO
+        data: formkeyline ,
+        success: function(msg){
+            var msgJSON = eval('(' + msg + ')');
+            $("input[name='_rev']").val(msgJSON.rev);
+            $("input").attr('readonly','readonly');
+            $("form.keyline .submit").hide('slow');
+            // TODO not logged in
+        }
+    });
+    safetime = 5 ;
+    };
+ 
  </script>
+<!--// http://agaoglu.tumblr.com/post/1231059494/serialize-form-data-to-json-with-jquery -->
 </html>
