@@ -1,0 +1,30 @@
+{{>header}}
+  <h1><a href="{{path}}">{{title}}</a></h1>
+  <div id="ticketer" class="hottyper both" ><button>New</button></div>
+
+  <dl class="ticket">
+   {{#tickets}}
+   <dt><input name="_id" value="{{_id}}" class="_id" onFocus="this.select()" readonly /><a href="../page/{{_id}}">{{title}}</a></dt>
+   <dd>
+    <form class="keyline">
+     <input name="prio"  class="prio_{{{prio}}}" value="{{{prio}}}" /> 
+     <input name="state" class="state_{{{state}}}" value="{{{state}}}" /> 
+     <input name="punct" class="{{{punct}}}" value="{{{punct}}}" /> 
+     <input name="queue" class="{{{queue}}}" value="{{{queue}}}" /> 
+     <input name="user"  class="{{{user}}}" value="{{{user}}}" /> 
+     <input name="ddate" class="" value="{{{ddate}}}" />
+    </form>
+    <div>{{markdown}}</div>
+    <p class="editinfo">von {{#edit_by}} {{name}} {{/edit_by}} um <span class="date">{{edit_at}}</span></p>    
+   </dd> 
+   {{/tickets}}  
+  </dl>
+ </body>
+  <script src="../script/wicketpresets.js"></script>
+  <script src="../script/myloader.js"></script>
+  <script src="/_utils/script/base64.js"></script>
+  <script src="../script/wicketboard.js"></script>
+  
+  
+  </script>
+</html>

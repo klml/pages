@@ -1,0 +1,50 @@
+   
+    <fieldset class="_id">
+     <legend><acronym title="TicketID is not direct changable, all link to here will break ">TicketID</acronym></legend>
+     <input name="_id" value="{{{id}}}"  />
+    </fieldset>
+    
+     <input type="hidden" name="_rev" value="{{_rev}}">
+     <input type="hidden" name="markdown" value="{{markdown}}"><!-- to get new compltet versions markdown has to piped throug  -->
+     <input type="hidden" name="title" value="{{title}}">
+
+    <fieldset class="rel">
+     <legend><acronym title="Ticket belongs to">Reference</acronym></legend>
+     <input name="rel"  value="{{{rel}}}" readonly="readonly" onFocus="this.select()" /> 
+    </fieldset>
+    <fieldset class="prio">
+     <legend>Priorität</legend>
+     <input name="prio"  class="prio_{{{prio}}}" value="{{{prio}}}" readonly="readonly" />
+     <div class="rail"></div>
+    </fieldset>
+    <fieldset class="punct">
+     <legend><acronym title="is this a request, a question, an idea or just for your information">Punct</acronym></legend>
+     <input name="punct" class="{{{punct}}}" value="{{{punct}}}" readonly="readonly" /> 
+    </fieldset>
+    <fieldset class="state">
+     <legend><acronym title="at what procedural step is this task">State</acronym></legend>
+     <input name="state" class="autocomplete state_{{{state}}}" value="{{{state}}}" readonly onFocus="this.select()" />
+     <div class="rail"></div>
+    </fieldset>
+    <fieldset class="queue">
+     <legend><acronym title="which projekt or department.">Queue</acronym></legend>
+     <input name="queue" class="autocomplete {{{queue}}}" value="{{{queue}}}" readonly="readonly" onFocus="this.select()" /> 
+    </fieldset>
+    <fieldset class="ddate">
+     <legend>Duedate</legend>
+     <input name="ddate" class="datepicker" value="{{{ddate}}}" readonly="readonly" />
+    </fieldset>
+    <fieldset class="user">
+     <legend>User</legend>
+     <input name="user"  class="autocomplete {{{user}}}"  value="{{{user}}}" readonly="readonly" onFocus="this.select()" /> 
+    </fieldset>
+    <fieldset>
+     <legend>Type</legend>
+     <input name="type" value="{{{type}}}" readonly="readonly" onFocus="this.select()" /> 
+    </fieldset>
+    <div class="submit" onclick="safekeyline()">Safe</div>
+
+
+     {{#comments}}
+     <li>{{comment}}</li>
+    {{/comments}} 
