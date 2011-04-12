@@ -6,45 +6,11 @@
   <div id="tools" class="both"></div>
 
   <div id="wiki">
-{{#type}} {{! only if type exists, not what type ;( }}
-   <form class="keyline" ID="keyline" onclick='keyliner()' ><!-- use form is easier than in-place-editor ? exept: copy -->
-     <input type="hidden" name="_id" value="{{id}}"><!-- chance to get this one on top of the page? -->
-     <input type="hidden" name="_rev" value="{{rev}}">
-     <input type="hidden" name="markdown" value="{{markdown}}"><!-- to get new compltet versions markdown has to piped throug  -->
-     <input type="hidden" name="title" value="{{title}}">
-    <fieldset class="prio">
-     <legend>Priorität</legend>
-     <input name="prio"  class="prio_{{{prio}}}"          value="{{{prio}}}" readonly />
-     <div class="rail"></div>
-    </fieldset>
-    <fieldset class="punct">
-     <legend><acronym title="is this a request, a question, an idea or just for your information">Punct</acronym></legend>
-     <input name="punct" class="{{{punct}}}" value="{{{punct}}}" readonly="readonly" /> 
-    </fieldset>
-    <fieldset class="state">
-     <legend><acronym title="at what procedural step is this task">State</acronym></legend>
-     <input name="state" class="autocomplete state_{{{state}}}" value="{{{state}}}" readonly onFocus="this.select()" />
-     <div class="rail"></div>
-    </fieldset>
-    <fieldset class="queue">
-     <legend><acronym title="which projekt or department.">Queue</acronym></legend>
-     <input name="queue" class="autocomplete {{{queue}}}" value="{{{queue}}}" readonly="readonly" onFocus="this.select()" /> 
-    </fieldset>
-    <fieldset class="ddate">
-     <legend>Duedate</legend>
-     <input name="ddate" class="datepicker" value="{{{ddate}}}" readonly="readonly" />
-    </fieldset>
-    <fieldset class="user">
-     <legend>User</legend>
-     <input name="user"  class="autocomplete {{{user}}}"  value="{{{user}}}" readonly="readonly" onFocus="this.select()" /> 
-    </fieldset>
-    <fieldset>
-     <legend>Type</legend>
-     <input name="type"  class=""  value="{{{type}}}" readonly="readonly" onFocus="this.select()" /> 
-    </fieldset>
-    <div class="submit" onclick="safekeyline()">Safe</div>
-   </form>
-{{/type}}
+{{#isticket}}
+ <form class="keyline" id="keyline" onclick='keyliner()' ><!-- use form is easier than in-place-editor ? exept: copy -->
+ {{>keyline}}
+ </form>
+{{/isticket}}
    
    <div class="wiki both">{{{body}}}</div>
   <p class="pagetools">
@@ -57,7 +23,27 @@
   </div>
   <p class="editinfo">von {{#edit_by}} {{name}} {{/edit_by}} um <span class="date">{{edit_at}}</span></p>      
 
-  <div id="comments"></div>
+    <div id="ticketer" class="hottyper both" ><button>New followUP</button></div>
+
+    <ul>
+     {{#comments}}
+     <li>{{comment}}</li>
+    {{/comments}}  
+    </ul>
+
+
+
+    {{#has_atts}}
+    <div id="comments">
+      <ul>
+        {{#atts}}
+          <dt><a href="{{uri}}">{{name}}</a> ({{type}})</li>
+        {{/atts}}
+      </ul>
+    </div>
+   {{/has_atts}}
+   
+   
     {{#has_atts}}
     <div id="files">
       <p>Files attached to <em>{{title}}</em>:</p>
@@ -97,7 +83,6 @@
       $$("#wiki").ddate = "{{{ddate}}}";
 
       $.pathbinder.begin("{{begin}}");
-      $("#comments").evently("comments", app);
     }, opts);
 
 function safekeyline() { // cant wicketboard.js: msg
@@ -112,7 +97,7 @@ function safekeyline() { // cant wicketboard.js: msg
             $("input[name='_rev']").val(msgJSON.rev);
             $("input").attr('readonly','readonly');
             $("form.keyline .submit").hide('slow');
-            // TODO not logged in
+            // TODO if not logged in
         }
     });
     safetime = 5 ;

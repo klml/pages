@@ -1,9 +1,24 @@
 // global stuff for wicketboard
 // TODO use as JSON like couchapp.json or editable as wikipage
-// and ? : why cant I use ccouchapp.json in the client
 
-var ticketprefix = "tick_";   // seomthing like "ticket", "bug_" 
+var ticketprefix = "tick_";   // something like "ticket", "bug_" 
 var safetime = "15";
+
+
+
+// TODO all below must be one JSON
+keys = new Array (
+"type" ,
+"_id" ,
+"prio" ,
+"state",
+"punct",
+"queue",
+"user" ,
+"ddate"
+)
+
+
 
 types  = new Array ( "wiki", "ticket", "adr", "ressource");
 prios  = new Array ( "week", "Alerta", "hour", "day", "week", "kuer");
@@ -17,3 +32,15 @@ queues = new Array (
   "klml.Home",
   "klml.konzum"
 );  
+
+//~ {
+//~ "keyz" : [
+ //~ "type" ,
+ //~ "prio" ,
+ //~ "state",
+ //~ "punct",
+ //~ "queue",
+ //~ "user" ,
+ //~ "ddate"
+ //~ ]
+//~ }

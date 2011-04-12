@@ -3,7 +3,7 @@ function() {
     mustache = require("vendor/couchapp/lib/mustache"),
     markdown = require("vendor/couchapp/lib/markdown"),
     data = {
-      title : "All Comments",
+      title : "All Commentaires",
       site_title : this.couchapp.name,
       path : "/pages/comments",
       comments : []

@@ -59,6 +59,14 @@
     }
   },
   {
+    "from" : "/pages/main",
+    "to" : "_list/main/main",
+    "query" : {
+      "descending" : true,
+      "limit" : 10
+    }
+  },
+  {
     "from" : "/pages/todoer",
     "to" : "_list/todoer/all-tickets",
     "query" : {

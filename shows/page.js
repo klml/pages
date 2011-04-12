@@ -22,22 +22,30 @@ function(doc, req) {
     data.title = doc.title;
     
     // for notzp, automatic?
-    data.rev = doc._rev;
+    data._rev = doc._rev;
     data.markdown = doc.markdown;
     data.log = doc.log;
 
     data.type = doc.type;
+    data.rel = doc.rel; 
     data.prio = doc.prio; 
     data.state = doc.state; 
     data.punct = doc.punct; 
     data.queue = doc.queue; 
     data.user = doc.user; 
     data.ddate = doc.ddate;
-   
+    
+    if ( doc.type.length > 5 ) { // TODO TODO !!! das muss auf doc.type = "ticket" lauten
+        data.isticket = true;
+    } else {
+        data.isticket = false;
+    }
     
     data.title_json = JSON.stringify(doc.title);
     data.begin = "";
+
     data.atts = [];
+
     if (doc._attachments) {
       for (name in doc._attachments) {
         if (name.indexOf("rev") != 0) {

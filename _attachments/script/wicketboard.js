@@ -93,6 +93,14 @@ function keyliner() {
         // safeinseconds();
     };
 
+
+function keycopy() { // copies the keyline to the new draft // double to /evently/ticketer/_init/after.js
+     for (i=0 ; i<keys.length ; i++) {
+         $('#ticketer.hottyper .' + keys[i] + ' input').val($('#wiki .' + keys[i] + ' input').val()) ;
+      }
+    $('#ticketer.hottyper .rel input').val($('#wiki ._id input').val()) ;
+};
+
 function safeinseconds() {
     $("form.keyline .submit").append(' ' + safetime );
     safetime = safetime -1 ;
@@ -101,21 +109,21 @@ function safeinseconds() {
         return; 
     } ;
     setTimeout(safeinseconds,1000); 
-    };  
+};  
 
 function nr2state(number) {
     if (number <= 5 ) { // 0-1 are readable stats, above this are percents, evtl resize to 10, I love this way of data typing ;)))
         state = states[number];
         $('form.keyline input[name="state"]').val(state); //< TODO  need a this 
         }
-    };
+};
 function autofillerswitch() {
     $("#prose").removeAttr("onkeyup");
     $("#ticketer p.warn").show("slow");
-    };
+};
 function autofiller(prose) {
    lines = prose.split('\n');
-   
+
    if (lines[1]) {
       dentline = lines[0];
       var autolemma = dentline.match(/(?:^|[\s\-])\S/g).join('').replace(/\s/g, ''); // abbr by regexp stolen to todoer
@@ -130,7 +138,7 @@ function autofiller(prose) {
             var date = new Date();
             autolemma = autolemma +  date. getFullYear() ; // year, month, second, random, counter, whatever toConfig! 
       }
-      $('input[name="_id"]').val(ticketprefix + autolemma);
+      $('form[name="ticketer"] input[name="_id"]').val(ticketprefix + autolemma);
 
       // dentline last word is the prio and punct(uation)) !!eins111elf!!!
       // $body_dueversion = "" . $task_details['due_in_version_name']; punct NULL
@@ -139,19 +147,17 @@ function autofiller(prose) {
       var prio = einself.match(/\!/g) ; // number of ! is the prio
       var priolength = "" ;
       if (prio) { priolength = prio.length };
-      $('input[name="prio"]').val(priolength) ;
-      $('input[name="prio"]').addClass('prio_' + priolength ) ;
+      $('form[name="ticketer"] input[name="prio"]').val(priolength) ;
+      $('form[name="ticketer"] input[name="prio"]').addClass('prio_' + priolength ) ;
 
-      var punct = new Array( einself.match(/\?/) , einself.match(/fyi/i) , einself.match(/idee/i) ) ;  // das muss auf glob puncts gehen
-      
-      
-      
+      var punct = new Array( einself.match(/\?/) , einself.match(/fyi/i) , einself.match(/idee/i) ) ;  // TODO das muss auf glob puncts gehen
       var puncts = punct.join("") ;
-      
-      
-      // expect is what a write expects after his note. answer to a ?, fyi (nothing expected), just an idea  /// solution without + and null? 
-      
-      $('input[name="punct"]').val(puncts) ;
+      $('form[name="ticketer"] input[name="punct"]').val(puncts) ;
 
+      var user = prose.match(/@.*?\s/g) ;
+      var users = user.join("") ;
+       //~ var users = prose.replace(/\@([\w\-]+)/g); // would be better  TODO
+      $('form[name="ticketer"] input[name="user"]').val(users) ;
+      
    }
 };

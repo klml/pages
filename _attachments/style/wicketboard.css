@@ -48,7 +48,8 @@ acronym                      { border-bottom-style: none ;}
 #ticketer form,
 #todoer form                { width:750px; border: 1px solid #00263f;}
 textarea[name=markdown] 	{ width:700px; line-height:21px; }
-#ticketer form textarea  	{ background: url(../images/subjectline.png) white 0 0 repeat-x; margin-top: 5px; }
+#ticketer form textarea  	{ background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAUCAIAAADHmRDLAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oFExQ1ESaTCwAAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAGElEQVQI12O8v2EDAwMDAwMDEwMMDEUWAM1gAmf1oF1BAAAAAElFTkSuQmCC) white 0 0 repeat-x; margin-top: 5px; }
+
 #todoerform textarea	    { background: url(../images/rainbowbakgrnd.png) white 0 0 repeat-x; }
 
 /* evently */
@@ -102,6 +103,9 @@ ul.todo li a span            { vertical-align: super; font-size: 50%; }
 /* keyline */
 form.keyline                 { margin: 0; padding: 5px; border: 0 solid white; background-color: transparent; }
 .keyline a                   { color: #121212; }
+/*
+#wiki .keyline input[readonly][value=""]                   { display: none; }
+*/
 
 .keyline fieldset,
 form.keyline .submit         { float: left; }
