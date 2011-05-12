@@ -76,8 +76,11 @@
   },
   {
     "from" : "/user/*",
-    "to" : "_list/todoer/all-tickets",
+    "to" : "_list/tickets/all-tickets",
     "query" : {
+      "startkey" : "*",
+      "endkey" :  "*",
+      "foo" : "bar" ,
       "descending" : true,
       "limit" : 10
       

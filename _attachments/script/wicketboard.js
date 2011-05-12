@@ -89,8 +89,6 @@ function keyliner() {
             max: 40,
             scrollHeight: 280,
         });
-
-        // safeinseconds();
     };
 
 
@@ -101,14 +99,15 @@ function keycopy() { // copies the keyline to the new draft // double to /eventl
     $('#ticketer.hottyper .rel input').val($('#wiki ._id input').val()) ;
 };
 
-function safeinseconds() {
-    $("form.keyline .submit").append(' ' + safetime );
+function autosafe() {
+    $("form.keyline .submit input").val(safetime);
     safetime = safetime -1 ;
     if (safetime <= 0) { 
-        safekeyline($("form.keyline input[name='_id']").val()); 
+        safekeyline($("form.keyline input[name='_id']").val()); // safekeyline is in page.html
+        //~ var safetime = 15; // should reset safetime
         return; 
     } ;
-    setTimeout(safeinseconds,1000); 
+    setTimeout(autosafe,1000); 
 };  
 
 function nr2state(number) {

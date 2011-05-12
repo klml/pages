@@ -44,6 +44,7 @@ acronym                      { border-bottom-style: none ;}
 .warn                        { color: red; border: 1px solid white; margin: 3px ; padding: 2px 6px; }
 
 /* satz und form */
+#wiki,
 #pager form,
 #ticketer form,
 #todoer form                { width:750px; border: 1px solid #00263f;}
@@ -103,9 +104,6 @@ ul.todo li a span            { vertical-align: super; font-size: 50%; }
 /* keyline */
 form.keyline                 { margin: 0; padding: 5px; border: 0 solid white; background-color: transparent; }
 .keyline a                   { color: #121212; }
-/*
-#wiki .keyline input[readonly][value=""]                   { display: none; }
-*/
 
 .keyline fieldset,
 form.keyline .submit         { float: left; }
@@ -135,10 +133,9 @@ dt input[name="_id"]                     { float: right;}
 ul.puncts                       { display: inline; }
 ul.puncts li                    { display: inline; }
 
-
 .keyline legend                 { font-size: 60%; }
 
-
+form.keyline .submit input      { margin-left: 10px; width: 10px; }
 
 /* jQuery switches */
 .selectable .ui-selecting       { background: silver; }
@@ -153,3 +150,15 @@ ul.puncts li                    { display: inline; }
 .wiki                           { background-color:white; }
 .ticket                         {  }
 .adr                            { background-color:orange; }
+/* keyline */
+fieldset._id,
+fieldset.rel,
+fieldset.type  { border-color: DarkGoldenRod; }
+
+/*
+fieldset .prio  {}
+fieldset .punct {}
+fieldset .state {}
+fieldset .queue {}
+fieldset .ddate {}
+fieldset .user  {}    */
