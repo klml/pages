@@ -43,24 +43,8 @@
     }
   },
   {
-    "from" : "/pages/comments",
-    "to" : "_list/comments/all-comments",
-    "query" : {
-      "descending" : true,
-      "limit" : 20
-    }
-  },
-  {
     "from" : "/pages/tickets",
     "to" : "_list/tickets/all-tickets",
-    "query" : {
-      "descending" : true,
-      "limit" : 10
-    }
-  },
-  {
-    "from" : "/pages/main",
-    "to" : "_list/main/main",
     "query" : {
       "descending" : true,
       "limit" : 10
@@ -74,18 +58,26 @@
       "limit" : 100
     }
   },
-  {
-    "from" : "/user/*",
-    "to" : "_list/tickets/all-tickets",
-    "query" : {
-      "startkey" : "*",
-      "endkey" :  "*",
-      "foo" : "bar" ,
-      "descending" : true,
-      "limit" : 10
-      
-    }
-  },
+  
+  { "from" : "/prio/*",  "to" : "_list/tickets/tickets-prio",  "query" : { "descending" : false, "limit" : 10 }  },
+  { "from" : "/state/*", "to" : "_list/tickets/tickets-state", "query" : { "descending" : false, "limit" : 10 }  },
+  { "from" : "/punct/*", "to" : "_list/tickets/tickets-punct", "query" : { "descending" : false, "limit" : 10 }  },
+  { "from" : "/queue/*", "to" : "_list/tickets/tickets-queue", "query" : { "descending" : false, "limit" : 10 }  },
+  
+  { 
+  "from" : "/user/*", 
+  "to" : "_list/tickets/tickets-user",  
+    "query" : { 
+    "startkey" : "*",
+    "endkey" : "*",
+    "descending" : false, 
+    "limit" : 10 
+        }  
+    },
+  
+  { "from" : "/ddate/*", "to" : "_list/tickets/tickets-ddate", "query" : { "descending" : false, "limit" : 10 }  },
+  
+
   {
     "from" : "pages/*",
     "to" : "../../*"

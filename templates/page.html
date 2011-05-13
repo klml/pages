@@ -93,16 +93,14 @@ function safekeyline() { // cant wicketboard.js: msg
         url: "../../../../{{id}}" , //< TODO
         data: formkeyline ,
         success: function(msg){
-            var msgJSON = eval('(' + msg + ')');
-            $("input[name='_rev']").val(msgJSON.rev);
+            var msgJSON = eval('(' + msg + ')'); 
+            $("input[name='_rev']").val(msgJSON.rev); // new rev id for next safe
             $("input").attr('readonly','readonly');
-            $("form.keyline .submit").hide('slow');
+            $("form.keyline .submit").hide('slow'); // shows "untouched"
             // TODO if not logged in
-        }
-    });
-    // safetime = 5 ; // ? in preset
+            }
+        });
     };
- 
  </script>
 <!--// http://agaoglu.tumblr.com/post/1231059494/serialize-form-data-to-json-with-jquery -->
 </html>

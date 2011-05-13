@@ -15,15 +15,19 @@ $.couch.app(function(app) {
   $.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
   $("#ticketer button").click(function(event) {
         $("#ticketer").evently("ticketer", app);
-        keyliner();
   });
   $("#todoer button").click(function(event) {  
         $("#todoer").evently("todoer", app);
-        keyliner();
   });
 }, opts);
 
+$(".autosafe input").change(function () {
+    safetime = startsafetime ;
+    autosafe() ;
+    $("form.keyline .submit input").show('slow');
+});
 
+// functions
 function keyliner() {
         $("form.keyline .submit").show('slow');
         $("form.keyline input").removeAttr('readonly'); // wirklich auf alle?

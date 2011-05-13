@@ -2,7 +2,7 @@
 // TODO use as JSON like couchapp.json or editable as wikipage
 
 var ticketprefix = "tick_";   // something like "ticket", "bug_" 
-var safetime = "6";
+var startsafetime = "9";
 
 
 
