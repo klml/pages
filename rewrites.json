@@ -65,16 +65,16 @@
   { "from" : "/queue/*", "to" : "_list/tickets/tickets-queue", "query" : { "descending" : false, "limit" : 10 }  },
   
   { 
-  "from" : "/user/*", 
+  "from" : "/user/:user/", 
   "to" : "_list/tickets/tickets-user",  
-    "query" : { 
-    "startkey" : "*",
-    "endkey" : "*",
-    "descending" : false, 
+    "query" : {
+    "startkey" : ":user",
+    "endkey" : ":user",
+    "descending" : false,
     "limit" : 10 
         }  
     },
-  
+    
   { "from" : "/ddate/*", "to" : "_list/tickets/tickets-ddate", "query" : { "descending" : false, "limit" : 10 }  },
   
 
