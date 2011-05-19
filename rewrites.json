@@ -59,20 +59,24 @@
     }
   },
   
+  
   { "from" : "/prio/*",  "to" : "_list/tickets/tickets-prio",  "query" : { "descending" : false, "limit" : 10 }  },
   { "from" : "/state/*", "to" : "_list/tickets/tickets-state", "query" : { "descending" : false, "limit" : 10 }  },
   { "from" : "/punct/*", "to" : "_list/tickets/tickets-punct", "query" : { "descending" : false, "limit" : 10 }  },
-  { "from" : "/queue/*", "to" : "_list/tickets/tickets-queue", "query" : { "descending" : false, "limit" : 10 }  },
+  { "from" : "/queue/", "to" : "_list/tickets/tickets-queue", "query" : { "descending" : false, "limit" : 10 }  },
+  { "from" : "/queue/:queue/", "to" : "_list/tickets/tickets-queue", 
+    "query" : { 
+    "startkey" : ":queue",
+    "endkey" : ":queue",
+    "descending" : false,
+    "limit" : 10 } 
+    },
   
-  { 
-  "from" : "/user/:user/", 
-  "to" : "_list/tickets/tickets-user",  
+  { "from" : "/user/", "to" : "_list/tickets/tickets-user", "query" : { "descending" : false, "limit" : 10 }  },
+  { "from" : "/user/:user/", "to" : "_list/tickets/tickets-user",  
     "query" : {
     "startkey" : ":user",
-    "endkey" : ":user",
-    "descending" : false,
-    "limit" : 10 
-        }  
+    "endkey" : ":user" }  
     },
     
   { "from" : "/ddate/*", "to" : "_list/tickets/tickets-ddate", "query" : { "descending" : false, "limit" : 10 }  },

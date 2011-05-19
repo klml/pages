@@ -12,9 +12,5 @@
       "vendor/couchapp/lib/mustache",
       "vendor/couchapp/lib/md5"
     ]
-  },
-  "humankey" : [
-        "host",
-        "mike"
-    ]
+  }
 }

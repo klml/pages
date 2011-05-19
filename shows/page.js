@@ -11,7 +11,7 @@ function(doc, req) {
       docid : JSON.stringify(req.id),
       id : req.id,
       path : "../page/"+req.id,
-      site_title : this.couchapp.name,
+      site_title : this.couchapp.name
     };
     
     

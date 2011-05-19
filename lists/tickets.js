@@ -6,7 +6,7 @@ function() {
       title : "Alle Tickets",
       site_title : this.couchapp.name,
       path : "/pages/tickets",
-      tickets : [],
+      tickets : []
     };
   provides("html", function() {
     while (row = getRow()) {
