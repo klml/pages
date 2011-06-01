@@ -7,7 +7,7 @@ wicketboard is a draft for a Issue_tracking_system written as an extension or fo
 
 a first [live demo](http://klml.couchone.com/wicket/_design/pages/_rewrite/tickets/all)
 
-more [dokumentation](http://umija.org/dev:wicket)
+more [dokumentation](http://umija.org/dev:wicketticket)
 
 ## Installing
 
