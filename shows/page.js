@@ -9,7 +9,7 @@ function(doc, req) {
         return (key == "parent") ? undefined : value;
       }),
       docid : JSON.stringify(req.id),
-      id : req.id,
+      _id : req.id,
       path : "../page/"+req.id,
       site_title : this.couchapp.name
     };

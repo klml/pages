@@ -1,5 +1,4 @@
-<form name="ticketer" class="keyline">
-
+<form class="keyline">
     <fieldset class="_id">
      <legend><acronym title="TicketID is not direct changable, all link to here will break ">TicketID</acronym></legend>
      <input name="_id" />
@@ -8,11 +7,10 @@
      <legend><acronym title="Ticket belongs to">Reference</acronym></legend>
      <input name="rel" />
     </fieldset>
-    
-    
+
     <fieldset class="prio">
      <legend>Priorität</legend>
-     <input name="prio"  class="prio_{{{prio}}}"          value="{{{prio}}}"  />
+     <input name="prio"  class="prio_{{{prio}}}" value="{{{prio}}}"  />
      <div class="rail"></div>
     </fieldset>
     <fieldset class="punct">
@@ -36,11 +34,8 @@
      <legend>User</legend>
      <input name="user"  class="autocomplete" onFocus="this.select()" /> 
     </fieldset>
-   <textarea id="prose" onkeyup='autofiller(value)' name="markdown" rows="10" cols="30"></textarea>
-   
- 
+   <textarea id="prose" onkeyup='autofiller(value)'  name="markdown" rows="10" cols="30"></textarea>
+
 
  <input type="submit" value="Ticket anlegen">
 </form>
-
-

@@ -1,0 +1,39 @@
+
+
+{{>header}}
+
+{{auth_db}} 1
+{{uri_name}}  3
+{{name}} 5
+
+  <h1><a href="{{path}}">{{title}}</a></h1>
+
+  <dl class="ticket">
+   {{#tickets}}
+   <dt>
+    {{>id_line}}
+   </dt>
+   <dd class="content">
+    <form class="keyline exist"><!--    >key_line -->
+     {{>key_line}}     
+    </form>
+    <div class="wiki both">{{{markdown}}}</div>
+    <p class="pagetools">
+     <a href="#/edit">Edit this page</a>
+     <!--a href="#/history" class="wiki">History</a>
+     <a href="#/upload">Upload File</a -->
+    </p>
+    <p class="editinfo">von {{#edit_by}} {{name}} {{/edit_by}} um <span class="date">{{edit_at}}</span></p>
+    <div class="new_page follow evently both" ><button>new follow up</button></div>
+   </dd> 
+   {{/tickets}}  
+  </dl>
+ </body>
+  <script src="../script/wicketpresets.js"></script>
+  <script src="../script/myloader.js"></script>
+  <script src="/_utils/script/base64.js"></script>
+  <script src="../script/wicketboard.js"></script>
+  
+  
+  </script>
+</html>

@@ -9,28 +9,61 @@
   <link rel="stylesheet" href="../style/wicketboard.css" type="text/css">
  </head>
  <body class="traffic {{{type}}} {{{state}}} prio_{{{prio}}}">
-  <div id="header">
+ <div id="header">
    <div>
     <div id="account"></div>      
      <a href="../page/index" alt="{{site_title}}" title="{{site_title}}" > </a>
      <menu>
-      <a href="../pages/tickets" class="ticket">tickets</a> <a href="../pages/todoer" class="ticket">todoes</a>
+     
+<!--
+     time recents
+     project
+     nme
+     dashboard
+-->
+     
+     
+     
+     
+      <a href="../tickets/all" class="ticket">all tickets</a>
+      <a href="../line/all" class="ticket">all tickets in line</a>
 
 <!--
       <a href='../prio/'  >prio</a>
       <a href='../state/' >state</a>
       <a href='../punct/' >punct</a>
 -->
-      <a href='../queue/"os.WickeT"' >os.WickeT</a>
-      <a href='../queue/"dev.notzp"' >dev.notzp</a>
-      <a href='../queue/"klml.Home"' >klml.Home</a>
-      <a href='../queue/"klml.konzum"' >klml.konzum</a>
-      
-      <a href='../user/"klml"'  ><i>me</i></a><!-- {{name}} mein user halt ! -->
+
 <!--
-      <a href='../ddate/' >ddate</a>
+      <form action="../queue/" method="get">
+       <select size="1">
+        <option>"os.WickeT"</option>
+        <option>"dev.notzp"</option>
+        <option value="asdsa" >"klml.Home"</option>
+        <option>"klml.konzum"</option>
+        <option value="asdsa" >klml.konzum</option>
+       </select>
+       <input type="submit" value="drück"/>
+      </form>
 -->
+      
+      <form action="../queue/" method="get">
+        <label>queue:</label>
+        <input name="queue/" value="" />        
+      </form>
+
+
+<!--
+this.form.submit()
+this.form.submit()
+-->
+      
+      <a href='../user/"klml"'  ><i>my</i></a><!-- {{name}} mein user halt ! -->
       <a href="../pages/recent" class="wiki"><acronym title="recent changes of all kind of documents, wikipages, tickets, adress etc">recent changes</acronym></a>
+      
+      <span class="new_page evently both" ><button>new</button></span>
+      <span class="new_pages evently" ><button>many new</button></span>
+      
     </menu>
    </div>
   </div>

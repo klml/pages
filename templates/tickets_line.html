@@ -1,0 +1,17 @@
+{{>header}}
+  <h1><a href="{{path}}">{{title}}</a></h1>
+
+  <ul class="todo">
+  {{#tickets}}
+   <li class="prio_{{{prio}}} state_{{{state}}}">
+    <input type="checkbox" name="{{title}}" value="{{_id}}">
+    {{>id_line}}
+   </li>
+  {{/tickets}}  
+  </ul>
+ </body>
+  <script src="../script/wicketpresets.js"></script>
+  <script src="../script/myloader.js"></script>
+  <script src="/_utils/script/base64.js"></script>
+  <script src="../script/wicketboard.js"></script>
+</html>

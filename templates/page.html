@@ -2,47 +2,28 @@
 
   <h1><a href="{{path}}">{{title}}</a></h1>
   <img src="../images/fusszettel.png" />
-  <input name="id" value="{{id}}" readonly="readonly" onFocus="this.select()" /> 
+  <input name="_id" value="{{_id}}" readonly="readonly" onFocus="this.select()" /> 
   <div id="tools" class="both"></div>
 
-  <div id="wiki">
-{{#isticket}}
- <form class="keyline" id="keyline" onclick='keyliner()' ><!-- use form is easier than in-place-editor ? exept: copy -->
- {{>keyline}}
- </form>
-{{/isticket}}
-   
-   <div class="wiki both">{{{body}}}</div>
+  <div id="wiki" class="content">
+  {{#isticket}}
+  
+   <form class="keyline exist" id="keyline" onclick='keyliner()' ><!-- use form is easier than in-place-editor ? exept: copy -->
+     <input type="hidden" name="_rev" value="{{_rev}}">
+     <input type="hidden" name="markdown" value="{{markdown}}"><!-- to get new compltet versions markdown has to piped throug  -->
+     <input type="hidden" name="title" value="{{title}}">
+    {{>key_line}}
+   </form>
+  {{/isticket}}
+  <div class="wiki both">{{{body}}}</div>
   <p class="pagetools">
-   <a href="#/edit">Edit this page</a>
-   <!--a href="#/history" class="wiki">History</a>
-   <a href="#/upload">Upload File</a -->
+   <a href="#/edit">Edit this page</a><!--a href="#/history" class="wiki">History</a><a href="#/upload">Upload File</a -->
   </p>
+  <p class="editinfo">von {{#edit_by}} {{name}} {{/edit_by}} um <span class="date">{{edit_at}}</span></p>
+  <div class="new_page follow evently both" ><button>new follow page<button></div>
+ </div>
+ 
 
-   
-  </div>
-  <p class="editinfo">von {{#edit_by}} {{name}} {{/edit_by}} um <span class="date">{{edit_at}}</span></p>      
-
-    <div id="ticketer" class="hottyper both" ><button>New followUP</button></div>
-
-    <ul>
-     {{#comments}}
-     <li>{{comment}}</li>
-    {{/comments}}  
-    </ul>
-
-
-
-    {{#has_atts}}
-    <div id="comments">
-      <ul>
-        {{#atts}}
-          <dt><a href="{{uri}}">{{name}}</a> ({{type}})</li>
-        {{/atts}}
-      </ul>
-    </div>
-   {{/has_atts}}
-   
    
     {{#has_atts}}
     <div id="files">
@@ -85,12 +66,12 @@
       $.pathbinder.begin("{{begin}}");
     }, opts);
 
-function safekeyline() { // cant wicketboard.js: msg
+function safekeyline() { // must be here: id
     var formData = form2object('keyline');
     var formkeyline = JSON.stringify(formData, null, '\t');
     $.ajax({
         type: "PUT",
-        url: "../../../../{{id}}" , //< TODO
+        url: "../../../../{{_id}}" , //< TODO
         data: formkeyline ,
         success: function(msg){
             var msgJSON = eval('(' + msg + ')'); 
@@ -102,5 +83,4 @@ function safekeyline() { // cant wicketboard.js: msg
         });
     };
  </script>
-<!--// http://agaoglu.tumblr.com/post/1231059494/serialize-form-data-to-json-with-jquery -->
 </html>

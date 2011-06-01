@@ -1,31 +1,35 @@
 /* the simple key less (values) css sytle */
 /* general overwirtes page  maincol #00263f  #3698d6 */ 
-body                        { padding: 10px; }
+body                        { padding: 1px;}
 body,
-ul.todo li a:hover          { color: #292929; } /* generall font, blck is so hard secndars would be #D2D2D2 */
 a                           { text-decoration: none ;}
-.wiki p                     { padding: 5px; }
+ol, ul, dl                  { margin-left: 0; }
+acronym                     { border-bottom-style: none ;}
+.both                       { clear: both;}
 #profile,
 p.menu                      { float:none; }
 #profile                    { background-color:white; }
-.both                       { clear: both; }
-
-#header,                    /* hefter */
+.wiki p                     { padding: 5px; }
+ul.todo li a:hover          { color: #292929; } /* generall font, blck is so hard secndars would be #D2D2D2 */
+/* hefter */
+#header,
 #header a,
 p.menu,
 p.menu a,
-.hottyper form,
+.evently form,
 button,
 form.keyline .submit         { color:white; background-color:#00263f; }
 
 #header                      { background: url(../images/wicket_ticked_logo_blauerbakg_60.png) 20px 15px no-repeat #00263f; padding: 5px; margin-bottom: 8px; }
-#header a                    { padding: 0 25px; }
+#header a                    { padding: 0 25px ; }
+#header a:hover              { background-color: #b1bbc4; padding: 0 25px 9px 25px ; }
+
 button                       { border-bottom: 1px !important;}
 #header > div                { border: 1px solid white; height:75px; }
 #header a[href$="index"]     { display: block; float: left; width: 150px; height: 75px;  border-right: 1px solid white; background-color: transparent; padding: 0; }
-
-
 #header menu                 { bottom: 1px; border-top: 1px solid white;  margin: 50px 0 0 150px; padding-left: 5px; }
+#header form                 { display: inline; margin: 1px; padding: 4px; background-color: #00263f; border:none;}
+
 
 h1                           { display: inline; border: 1px solid #00263f; padding: 0 13px 0 8px;}
 input[name="id"]             {vertical-align : top; margin-top: 5px;}
@@ -33,7 +37,7 @@ input[name="id"]:after       { content: url(../images/fusszettel.png) ; }
 img[src$="fusszettel.png"]   { margin: 0 -4px 12px -19px ; }
 
 
-acronym                      { border-bottom-style: none ;}
+
 
 #wiki,
 .pagetools a                 { border: 1px solid #00263f; }
@@ -46,38 +50,33 @@ acronym                      { border-bottom-style: none ;}
 /* satz und form */
 #wiki,
 #pager form,
-#ticketer form,
-#todoer form                { width:750px; border: 1px solid #00263f;}
-textarea[name=markdown] 	{ width:700px; line-height:21px; }
-#ticketer form textarea  	{ background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAUCAIAAADHmRDLAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oFExQ1ESaTCwAAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAGElEQVQI12O8v2EDAwMDAwMDEwMMDEUWAM1gAmf1oF1BAAAAAElFTkSuQmCC) white 0 0 repeat-x; margin-top: 5px; }
+.new_page form,
+dl.ticket               { width:950px; border: 1px solid #00263f;}
 
-#todoerform textarea	    { background: url(../images/rainbowbakgrnd.png) white 0 0 repeat-x; }
+
+textarea[name=markdown] 	{ width:700px; line-height:21px; }
+.new_page form textarea  	{ background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAUCAIAAADHmRDLAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oFExQ1ESaTCwAAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAGElEQVQI12O8v2EDAwMDAwMDEwMMDEUWAM1gAmf1oF1BAAAAAElFTkSuQmCC) white 0 0 repeat-x; margin-top: 5px; }
+
+.new_pages form textarea    { background: url(../images/rainbowbakgrnd.png) white 0 0 repeat-x; }
 
 /* evently */
-.hottyper legend a           { font-size: 50%;}
-
-.hottyper form div,
-.hottyper form input         { border: 1px solid white;}
-.hottyper form div           { float: left; padding-bottom: 4px; }
-.hottyper form .top div      { margin: 0 4px 4px 0; }
-.hottyper form .bot div      { margin: 4px 4px 0 0; }
-
-
-.hottyper ul.selectable      { margin: 0;  display: inline; }
-.hottyper ul.selectable li   { margin-right: 5px; list-style: none; }
-.hottyper #puncts ul li      { display: inline; }
-
-
-.hottyper p.warn             { display: none; } /* genauer !*/
-
-.hottyper .top input         { width: 240px;}
-.hottyper .bot input         { width: 177px;}
-
-.hottyper .top div           { width: 225px;}
-.hottyper .bot div           { width: 162px;}
-
-.hottyper .top div,
-.hottyper .bot div           { padding-left: 15px;}
+.evently legend a           { font-size: 50%;}
+ 
+.evently form div,
+.evently form input         { border: 1px solid white;}
+.evently form div           { float: left; padding-bottom: 4px; }
+.evently form .top div      { margin: 0 4px 4px 0; }
+.evently form .bot div      { margin: 4px 4px 0 0; }
+.evently ul.selectable      { margin: 0;  display: inline; }
+.evently ul.selectable li   { margin-right: 5px; list-style: none; }
+.evently #puncts ul li      { display: inline; }
+.evently p.warn             { display: none; } /* genauer !*/
+.evently .top input         { width: 240px;}
+.evently .bot input         { width: 177px;}
+.evently .top div           { width: 225px;}
+.evently .bot div           { width: 162px;}
+.evently .top div,
+.evently .bot div           { padding-left: 15px;}
 
 
 /* templates */
@@ -87,14 +86,16 @@ input[readonly]              { color: gray; }
 
 /* lists */
 dl.ticket span               { padding: 0 10px; }
-dl.ticket                    { width:700px; padding: 5px; }
+/*
+dl.ticket                    { width:700px; padding: 0; }
+*/
 
 .ticket dt,
-.ticket dd                   {  background-color: #b1bbc4; }
+.ticket dd                   {  background-color: #b1bbc4; font-weight: normal; font-size: 14px ;}
 
 
-dl.ticket dt                 { padding: 10px 10px 0 10px ; }
-dl.ticket dd                 { margin: 0 0 10px 0; padding: 1px 10px ; }
+dl.ticket dt                 { padding: 1px 10px 0 ; }
+dl.ticket dd                 { margin: 0 0 3px 0; padding: 1px 10px ; }
 
 ul.todo li                   { border-bottom: 1px solid #f2f1f0 ; list-style-type: none; padding: 2px 0 2px 2px; }
 ul.todo li a                 { text-decoration: none; color: #D2D2D2; } // state_archive can never be a todo 
@@ -102,7 +103,7 @@ ul.todo li a span            { vertical-align: super; font-size: 50%; }
 
 
 /* keyline */
-form.keyline                 { margin: 0; padding: 5px; border: 0 solid white; background-color: transparent; }
+form.keyline                 { margin: 0; padding: 0; border: 0 solid white; background-color: transparent; }
 .keyline a                   { color: #121212; }
 
 .keyline fieldset,
@@ -116,14 +117,14 @@ form.keyline .submit input   { display: none; }
 
 
 .keyline input,
-.todo li span.punct          { width: 115px; height: 21px; border: 1px solid #D2D2D2; background-color: #b1bbc4; font-size: 85%; padding: 2px 5px;}
+.todo li span.punct          { width: 115px; height: 12px; border: 1px solid #D2D2D2; background-color: #b1bbc4; font-size: 85%; padding: 2px 5px;}
 
 .keyline input.autocomplete[readonly]    { background: #b1bbc4 url(...)  ; }
 .keyline input.autocomplete              { background: #b1bbc4 url(../images/dropdown.png) top right no-repeat ; }
 
 input[name="id"],
 input[name="_id"]                        {  border: 1px solid #525252; font-family: monospace; font-weight: lighter; }
-dt input[name="_id"]                     { float: right;}
+dt input[name="_id"]                     { float: right;  font-size: 12px;}
 
 .keyline input[name="prio"]              { background: url(../images/prio_rainbow.png) 0 0 repeat-y white ; width: 68px; }
 .keyline input[name="prio"]value         { border: 2px solid white ; color: black; }
@@ -140,6 +141,7 @@ ul.puncts li                    { display: inline; }
 .keyline legend                 { font-size: 60%; }
 
 form.keyline .submit input      { margin-left: 10px; width: 10px; }
+dd p                            { margin-bottom: 0; }
 
 /* jQuery switches */
 .selectable .ui-selecting       { background: silver; }
@@ -147,6 +149,9 @@ form.keyline .submit input      { margin-left: 10px; width: 10px; }
 .ui-slider .ui-slider-handle    { background: url(../images/dropup.png) 0 0 no-repeat ; height: 7px; width: 14px; border: none; margin-left: 0 ;}
 .ui-slider .ui-slider-handle:hover    { background: url(../images/dropup_high.png) 0 0 no-repeat ; height: 35px; }
 .rail                           { height: 0;  margin-top: -2px;}
+
+
+
 
 
 /** outermarkdown  **/

@@ -11,21 +11,31 @@ $.couch.app(function(app) {
   var pr = app.ddoc.evently.profile.profileReady;
   pr.mustache = pr.all; // mod the template for this page
   $("#profile").evently("profile", app);
-
   $.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
-  $("#ticketer button").click(function(event) {
-        $("#ticketer").evently("ticketer", app);
+  
+  $(".new_page button").click(function(event) {  
+        $(this).parent().evently("new_page", app);
   });
-  $("#todoer button").click(function(event) {  
-        $("#todoer").evently("todoer", app);
+  $(".new_pages button").click(function(event) {  
+        $(this).parent().evently("new_pages", app);
   });
 }, opts);
 
 $(".autosafe input").change(function () {
-    safetime = startsafetime ;
-    autosafe() ;
-    $("form.keyline .submit input").show('slow');
+    safekeyline($("form.keyline input[name='_id']").val()); // safekeyline is in page.html
+    //~ safetime = startsafetime ;
+    //~ autosafe() ;
+    //~ $("form.keyline .submit input").show('slow');
 });
+
+$('#header input[name="queue_get"]').autocomplete(queues, { // TODO
+    matchContains: true,
+    minChars: 0,
+    max: 40,
+    scrollHeight: 280,
+}); 
+
+
 
 // functions
 function keyliner() {
@@ -49,7 +59,7 @@ function keyliner() {
             }
         });
 
-        $('form.keyline input[name="state"]').autocomplete(states, { // TODO http://plugins.jquery.com/project/FlexBox http://plugins.jquery.com/project/DDComboBox
+        $('.new_page form input[name="state"]').autocomplete(states, { // TODO http://plugins.jquery.com/project/FlexBox http://plugins.jquery.com/project/DDComboBox
             matchContains: true,
             minChars: 0, //< combobox
             max: 40,
@@ -64,14 +74,12 @@ function keyliner() {
                 nr2state(ui.value); //< ... these will "translated" in to ... will I burn in hell or is this ok?
             } 
         });
-
         $('form.keyline input[name="queue"]').autocomplete(queues, {
             matchContains: true,
             minChars: 0,
             max: 40,
             scrollHeight: 280,
         }); 
-        
         $(".datepicker").datepicker({
             defaultDate: +7,
             dateFormat: 'yy-mm-dd',
@@ -96,14 +104,7 @@ function keyliner() {
     };
 
 
-function keycopy() { // copies the keyline to the new draft // double to /evently/ticketer/_init/after.js
-     for (i=0 ; i<keys.length ; i++) {
-         $('#ticketer.hottyper .' + keys[i] + ' input').val($('#wiki .' + keys[i] + ' input').val()) ;
-      }
-    $('#ticketer.hottyper .rel input').val($('#wiki ._id input').val()) ;
-};
-
-function autosafe() {
+function autosafe() { // evtl obsolet change
     $("form.keyline .submit input").val(safetime);
     safetime = safetime -1 ;
     if (safetime <= 0) { 
@@ -141,7 +142,7 @@ function autofiller(prose) {
             var date = new Date();
             autolemma = autolemma +  date. getFullYear() ; // year, month, second, random, counter, whatever toConfig! 
       }
-      $('form[name="ticketer"] input[name="_id"]').val(ticketprefix + autolemma);
+      $('.new_page form.keyline input[name="_id"]').val(ticketprefix + autolemma);
 
       // dentline last word is the prio and punct(uation)) !!eins111elf!!!
       // $body_dueversion = "" . $task_details['due_in_version_name']; punct NULL

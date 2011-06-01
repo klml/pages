@@ -1,49 +1,39 @@
     <fieldset class="_id">
      <legend><acronym title="TicketID is not direct changable, all link to here will break ">TicketID</acronym></legend>
-     <input name="_id" value="{{{id}}}"  />
+     <input name="_id" value="{{_id}}"  readonly="readonly" autocomplete="off"/>
     </fieldset>
-
-     <input type="hidden" name="_rev" value="{{_rev}}">
-     <input type="hidden" name="markdown" value="{{markdown}}"><!-- to get new compltet versions markdown has to piped throug  -->
-     <input type="hidden" name="title" value="{{title}}">
-
     <fieldset class="rel">
-     <legend><acronym title="Ticket belongs to">Reference</acronym></legend>
+     <legend><acronym title="Ticket belongs to">Relationship</acronym></legend>
      <input name="rel"  value="{{{rel}}}" readonly="readonly" onFocus="this.select()" /> 
     </fieldset>
     <fieldset class="prio autosafe">
      <legend>Priorität</legend>
-     <input name="prio"  class="prio_{{{prio}}}" value="{{{prio}}}" readonly="readonly" />
+     <input name="prio"  class="prio_{{{prio}}}" value="{{{prio}}}" readonly="readonly" autocomplete="off"/>
      <div class="rail"></div>
     </fieldset>
     <fieldset class="punct autosafe">
      <legend><acronym title="is this a request, a question, an idea or just for your information">Punct</acronym></legend>
-     <input name="punct" class="{{{punct}}}" value="{{{punct}}}" readonly="readonly" /> 
+     <input name="punct" class="{{{punct}}}" value="{{{punct}}}" readonly="readonly" autocomplete="off"/> 
     </fieldset>
     <fieldset class="state autosafe">
      <legend><acronym title="at what procedural step is this task">State</acronym></legend>
-     <input name="state" class="autocomplete state_{{{state}}}" value="{{{state}}}" readonly="readonly" onFocus="this.select()" />
+     <input name="state" class="autocomplete state_{{{state}}}" value="{{{state}}}" readonly="readonly" autocomplete="off" onFocus="this.select()" />
      <div class="rail"></div>
     </fieldset>
     <fieldset class="queue autosafe">
      <legend><acronym title="which projekt or department.">Queue</acronym></legend>
-     <input name="queue" class="autocomplete {{{queue}}}" value="{{{queue}}}" readonly="readonly" onFocus="this.select()" /> 
+     <input name="queue" class="autocomplete {{{queue}}}" value="{{{queue}}}" readonly="readonly" autocomplete="off" onFocus="this.select()" /> 
     </fieldset>
     <fieldset class="ddate autosafe">
      <legend>Duedate</legend>
-     <input name="ddate" class="datepicker" value="{{{ddate}}}" readonly="readonly" />
+     <input name="ddate" class="datepicker" value="{{{ddate}}}" readonly="readonly" autocomplete="off"/>
     </fieldset>
     <fieldset class="user autosafe">
      <legend>User</legend>
-     <input name="user"  class="autocomplete {{{user}}}"  value="{{{user}}}" readonly="readonly" onFocus="this.select()" /> 
+     <input name="user"  class="autocomplete {{{user}}}"  value="{{{user}}}" readonly="readonly" autocomplete="off" onFocus="this.select()" /> 
     </fieldset>
     <fieldset class="type">
      <legend>Type</legend>
      <input name="type" value="{{{type}}}" readonly="readonly" onFocus="this.select()" /> 
     </fieldset>
-    <div class="submit" onclick="safekeyline()">Safe<input readonly="readonly" /></div>
-
-
-     {{#comments}}
-     <li>{{comment}}</li>
-    {{/comments}} 
+    <div class="submit" onclick="safekeyline()">Safe</div>
