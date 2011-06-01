@@ -5,9 +5,9 @@ I was tired of all the complicated wikis that required some kind of application 
 ## klml fork: wicketboard
 wicketboard is a draft for a Issue_tracking_system written as an extension or fork of pages, a wiki using cuchapp with couchDB. pages, like every wiki, is imho a very good implementation for the Document-oriented database system of couchDB. It shows the user documenst als pages and lets you create change it. And of course couchapp is so elementary and plain (no extra webserver, no extra script just JS
 
-a first [live demo](http://klml.couchone.com/wicketboard/_design/pages/_rewrite/page/index)
+a first [live demo](http://klml.couchone.com/wicket/_design/pages/_rewrite/tickets/all)
 
-more [dokumentation](http://umija.org/dev:wicketboard)
+more [dokumentation](http://umija.org/dev:wicket)
 
 ## Installing
 
